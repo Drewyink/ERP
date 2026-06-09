@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The ERP Career — Handbook &amp; Interactive Quiz · Echolink Solutions</title>
+<style>
+  :root{
+    --navy:#0B2545; --steel:#13315C; --accent:#2E75B6; --sky:#5B9BD5; --ice:#D6E4F0;
+    --icelite:#EEF4FA; --gold:#C9A227; --gold-soft:#E9D8A0; --grey:#5A6675; --line:#C7D2DD;
+    --paper:#F5F8FC; --white:#FFFFFF; --ink:#1A2530;
+    --good:#1E7A46; --goodbg:#E4F3EA; --bad:#B4232A; --badbg:#FBE9E9;
+    --shadow:0 10px 30px rgba(11,37,69,.10); --shadow-sm:0 3px 12px rgba(11,37,69,.07);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.62; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:"Segoe UI Semibold","Segoe UI",Helvetica,Arial,sans-serif; letter-spacing:-.2px;}
+  a{color:var(--accent);}
+  .figsvg{width:100%; height:auto; display:block;}
+
+  .brandbar{background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:space-between;
+    padding:11px 22px; border-bottom:3px solid var(--gold);}
+  .brandbar .logo{display:flex; align-items:center; gap:11px; font-weight:700; letter-spacing:.04em; font-size:.95rem;}
+  .brandbar .logo .mark{width:30px; height:30px; border-radius:7px; background:linear-gradient(135deg,var(--sky),var(--gold));
+    display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--navy); font-size:.95rem;}
+  .brandbar .tagline{color:#9fb8d6; font-size:.78rem; letter-spacing:.18em; text-transform:uppercase;}
+
+  nav.tabs{position:sticky; top:0; z-index:40; background:rgba(255,255,255,.94); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line); display:flex; justify-content:center; gap:2px; padding:0 12px;
+    box-shadow:0 2px 12px rgba(11,37,69,.05); flex-wrap:wrap;}
+  nav.tabs button{background:none; border:none; cursor:pointer; font:inherit; font-weight:600; color:var(--grey);
+    padding:15px 20px; border-bottom:3px solid transparent; transition:.18s; font-size:.95rem;}
+  nav.tabs button:hover{color:var(--navy);}
+  nav.tabs button.active{color:var(--navy); border-bottom-color:var(--gold);}
+
+  main{max-width:900px; margin:0 auto; padding:0 22px 90px;}
+  .view{display:none;} .view.show{display:block; animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
+
+  /* ===== HOME ===== */
+  .hero{position:relative; margin:0 -22px 0; overflow:hidden;
+    background:radial-gradient(1200px 500px at 70% -10%, #1c4a7e 0%, var(--navy) 45%, #081b34 100%); color:#fff;}
+  .hero-inner{max-width:900px; margin:0 auto; padding:74px 22px 92px; position:relative; z-index:2;}
+  .hero .eyebrow{display:inline-block; letter-spacing:.28em; font-size:.72rem; font-weight:700;
+    color:var(--gold-soft); text-transform:uppercase; padding:7px 14px; border:1px solid rgba(201,162,39,.4); border-radius:30px; margin-bottom:24px;}
+  .hero h1{margin:0; font-size:3.3rem; line-height:1.05; letter-spacing:-1px;}
+  .hero h1 .accent{background:linear-gradient(90deg,var(--sky),var(--gold-soft)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .hero .deck{margin:20px 0 0; font-size:1.2rem; color:#cfe0f2; max-width:620px; line-height:1.5;}
+  .hero .roles{margin-top:14px; color:#8fb0d4; font-size:.96rem;}
+  .hero .cta-row{margin-top:38px; display:flex; gap:14px; flex-wrap:wrap;}
+  .cta{border:none; cursor:pointer; font:inherit; font-weight:700; font-size:1rem; padding:15px 30px; border-radius:11px; transition:.2s;}
+  .cta.primary{background:linear-gradient(135deg,var(--gold) 0%,#d9b13e 100%); color:var(--navy); box-shadow:0 8px 22px rgba(201,162,39,.35);}
+  .cta.primary:hover{transform:translateY(-2px); box-shadow:0 12px 28px rgba(201,162,39,.45);}
+  .cta.secondary{background:rgba(255,255,255,.10); color:#fff; border:1px solid rgba(255,255,255,.28);}
+  .cta.secondary:hover{background:rgba(255,255,255,.18); transform:translateY(-2px);}
+  .hero-art{position:absolute; right:-30px; top:50%; transform:translateY(-50%); width:420px; max-width:42vw; opacity:.15; z-index:1; pointer-events:none;}
+  .hero-wave{display:block; width:100%; height:48px; margin-top:-1px;}
+
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:0; max-width:900px; margin:-46px auto 0; position:relative; z-index:5;
+    background:var(--white); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden;}
+  .stat{padding:22px 18px; text-align:center; border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat .n{font-size:1.9rem; font-weight:800; color:var(--navy); line-height:1;}
+  .stat .l{font-size:.8rem; color:var(--grey); margin-top:6px;}
+
+  .home-section{margin:58px 0 0;}
+  .home-section h2{text-align:center; font-size:2rem; color:var(--navy); margin:8px 0 8px;}
+  .home-section .intro{text-align:center; color:var(--grey); max-width:620px; margin:0 auto 30px; font-size:1.05rem;}
+
+  .roles-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .role-card{background:var(--white); border:1px solid var(--line); border-radius:16px; padding:26px 22px; box-shadow:var(--shadow-sm); transition:.2s; position:relative; overflow:hidden;}
+  .role-card::before{content:""; position:absolute; inset:0 0 auto 0; height:5px;}
+  .role-card.hd::before{background:linear-gradient(90deg,var(--sky),var(--accent));}
+  .role-card.sa::before{background:linear-gradient(90deg,var(--accent),var(--steel));}
+  .role-card.ba::before{background:linear-gradient(90deg,var(--steel),var(--gold));}
+  .role-card:hover{transform:translateY(-5px); box-shadow:var(--shadow);}
+  .role-card .badge{display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:4px 11px; border-radius:20px; background:var(--icelite); color:var(--accent); margin-bottom:14px;}
+  .role-card h3{margin:0 0 4px; font-size:1.2rem; color:var(--navy);}
+  .role-card .q{font-style:italic; color:var(--steel); margin:0 0 14px; font-size:.96rem;}
+  .role-card p{margin:0; color:var(--grey); font-size:.92rem;}
+  .role-card .sal{margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); font-size:.86rem; color:var(--navy); font-weight:600;}
+
+  .inside-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .inside{background:var(--white); border:1px solid var(--line); border-radius:14px; padding:22px; text-align:center; transition:.2s; cursor:pointer;}
+  .inside:hover{transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--accent);}
+  .inside .emoji{width:52px; height:52px; margin:0 auto 12px; border-radius:13px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--icelite),var(--ice));}
+  .inside .emoji svg{width:26px; height:26px; fill:none; stroke:var(--accent); stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+  .inside h4{margin:0 0 6px; color:var(--navy); font-size:1.05rem;}
+  .inside p{margin:0; color:var(--grey); font-size:.88rem;}
+
+  .home-cta{margin:56px 0 0; background:linear-gradient(135deg,var(--steel),var(--navy)); border-radius:20px; padding:42px 34px; text-align:center; color:#fff; box-shadow:var(--shadow);}
+  .home-cta h2{margin:0 0 8px; font-size:1.8rem;}
+  .home-cta p{margin:0 auto 24px; color:#cfe0f2; max-width:520px;}
+
+  /* ===== BOOK ===== */
+  .page-head{padding:40px 0 6px;}
+  .page-head .kicker{letter-spacing:.2em; font-size:.74rem; font-weight:700; color:var(--accent); text-transform:uppercase;}
+  .page-head h1{font-size:2.1rem; color:var(--navy); margin:6px 0 4px;}
+  .page-head p{color:var(--grey); margin:0;}
+  .book-toc{background:var(--white); border:1px solid var(--line); border-left:5px solid var(--gold); border-radius:14px; padding:20px 26px 10px; margin:22px 0 30px; box-shadow:var(--shadow-sm);}
+  .book-toc h3{margin:0 0 10px; color:var(--navy);}
+  .book-toc ol{margin:0; padding-left:20px; columns:2; column-gap:36px;}
+  .book-toc li{margin:5px 0; break-inside:avoid;}
+  .book-toc a{text-decoration:none; color:var(--steel); font-weight:600; font-size:.93rem;}
+  .book-toc a:hover{color:var(--accent); text-decoration:underline;}
+
+  .ch-open{margin:48px 0 6px; padding-top:16px; border-top:1px solid var(--line);}
+  .book-sec:first-of-type .ch-open{border-top:none;}
+  .ch-kicker{letter-spacing:.2em; font-size:.72rem; font-weight:700; color:var(--accent); text-transform:uppercase;}
+  .ch-title{margin:4px 0 6px; font-size:1.85rem; color:var(--navy); border-bottom:3px solid var(--gold); padding-bottom:8px;}
+  .ch-sub{color:var(--grey); font-style:italic; font-size:1.05rem; margin:0 0 6px;}
+  .bk-h1{font-size:1.7rem; color:var(--navy); margin:40px 0 12px; border-bottom:2px solid var(--gold); padding-bottom:7px;}
+  .bk-h2{font-size:1.3rem; color:var(--steel); margin:30px 0 8px;}
+  .bk-h3{font-size:1.06rem; color:var(--accent); margin:22px 0 6px;}
+  .book-sec p{margin:0 0 13px; color:#28323d;}
+  .bk-list{margin:6px 0 16px; padding-left:24px;} .bk-list li{margin:6px 0;}
+  ol.bk-list{list-style:decimal;}
+  .callout{background:var(--icelite); border-left:6px solid var(--accent); border-radius:0 12px 12px 0; padding:16px 22px; margin:18px 0; box-shadow:var(--shadow-sm);}
+  .callout-t{font-weight:700; color:var(--navy); margin-bottom:6px;}
+  .callout p{margin:0 0 7px;} .callout p:last-child{margin-bottom:0;}
+  .tbl-wrap{overflow-x:auto; margin:18px 0; border-radius:12px; box-shadow:var(--shadow-sm);}
+  table.bk-tbl{border-collapse:collapse; width:100%; font-size:.92rem; min-width:520px; background:#fff;}
+  table.bk-tbl th{background:var(--navy); color:#fff; text-align:left; padding:10px 13px; font-weight:600;}
+  table.bk-tbl td{border:1px solid var(--line); padding:8px 13px; vertical-align:top;}
+  table.bk-tbl tr:nth-child(even) td{background:var(--icelite);}
+  .bk-fig{margin:26px 0; text-align:center;}
+  .bk-fig .figbox{background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; box-shadow:var(--shadow-sm);}
+  .bk-fig figcaption{font-size:.86rem; color:var(--grey); font-style:italic; margin-top:10px;}
+  .qa-q{background:linear-gradient(135deg,var(--icelite),#fff); border-left:5px solid var(--accent); border-radius:0 10px 10px 0; padding:12px 18px; margin:20px 0 6px; color:var(--navy); box-shadow:var(--shadow-sm);}
+  .qa-q strong{color:var(--navy);}
+
+  .totop{position:fixed; right:18px; bottom:18px; background:var(--navy); color:#fff; border:none; width:48px; height:48px; border-radius:50%; font-size:1.3rem; cursor:pointer; display:none; z-index:50; box-shadow:0 6px 18px rgba(11,37,69,.35);}
+  .totop.show{display:block;}
+
+  /* ===== QUIZ ===== */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:15px; margin-top:26px;}
+  .qcard{background:var(--white); border:1px solid var(--line); border-radius:14px; padding:20px 18px 17px; cursor:pointer; transition:.2s; text-align:left; font:inherit; color:inherit; position:relative; overflow:hidden;}
+  .qcard::before{content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--accent); transition:.2s;}
+  .qcard:hover{transform:translateY(-4px); box-shadow:var(--shadow);}
+  .qcard:hover::before{width:8px; background:var(--gold);}
+  .qcard .num{font-size:.7rem; letter-spacing:.18em; font-weight:700; color:var(--accent); text-transform:uppercase;}
+  .qcard h3{margin:6px 0 4px; font-size:1.05rem; color:var(--navy);}
+  .qcard .meta{font-size:.85rem; color:var(--grey);}
+  .qcard.exam{background:linear-gradient(135deg,#fff,var(--icelite));}
+  .qcard.exam::before{background:var(--gold);}
+  .role-tag{display:inline-block; font-size:.7rem; font-weight:700; padding:2px 9px; border-radius:20px; margin-top:10px;}
+  .tag-hd{background:var(--ice); color:var(--navy);} .tag-sa{background:#d8e8f6; color:var(--steel);}
+  .tag-ba{background:#dfe7f2; color:var(--steel);} .tag-core{background:#f3eccf; color:#7a6410;}
+  .runner-head{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:6px; flex-wrap:wrap;}
+  .runner-head h2{margin:0; color:var(--navy); font-size:1.6rem;}
+  .back{background:none; border:1px solid var(--line); border-radius:8px; padding:8px 14px; cursor:pointer; font:inherit; font-weight:600; color:var(--steel);}
+  .back:hover{background:var(--icelite);}
+  .progress-wrap{background:var(--ice); border-radius:20px; height:9px; margin:14px 0 4px; overflow:hidden;}
+  .progress-bar{height:100%; width:0; background:linear-gradient(90deg,var(--accent),var(--gold)); transition:width .3s;}
+  .progress-label{font-size:.85rem; color:var(--grey); margin-bottom:22px;}
+  .question{background:var(--white); border:1px solid var(--line); border-radius:16px; padding:26px 26px 22px; margin-bottom:20px; box-shadow:var(--shadow-sm);}
+  .question .qn{font-size:.72rem; letter-spacing:.16em; font-weight:700; color:var(--accent); text-transform:uppercase;}
+  .question .stem{font-size:1.18rem; font-weight:600; color:var(--navy); margin:6px 0 18px;}
+  .opts{display:flex; flex-direction:column; gap:10px;}
+  .opt{display:flex; align-items:flex-start; gap:12px; padding:13px 16px; border:1.5px solid var(--line); border-radius:11px; cursor:pointer; transition:.15s; background:var(--white);}
+  .opt:hover{border-color:var(--accent); background:var(--icelite);}
+  .opt .letter{flex:0 0 27px; height:27px; border-radius:50%; border:2px solid var(--accent); color:var(--accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.85rem; transition:.15s;}
+  .opt .otext{padding-top:2px;}
+  .opt.chosen{border-color:var(--accent); background:var(--icelite);} .opt.chosen .letter{background:var(--accent); color:#fff;}
+  .opt.correct{border-color:var(--good); background:var(--goodbg);} .opt.correct .letter{background:var(--good); border-color:var(--good); color:#fff;}
+  .opt.wrong{border-color:var(--bad); background:var(--badbg);} .opt.wrong .letter{background:var(--bad); border-color:var(--bad); color:#fff;}
+  .opt.locked{cursor:default;}
+  .explain{margin-top:15px; padding:13px 17px; border-left:4px solid var(--gold); background:var(--icelite); border-radius:0 9px 9px 0; font-size:.96rem; display:none;}
+  .explain.show{display:block;} .explain b{color:var(--navy);}
+  .runner-foot{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:8px;}
+  .btn{background:var(--navy); color:#fff; border:none; border-radius:10px; padding:13px 28px; font:inherit; font-weight:600; cursor:pointer; transition:.18s;}
+  .btn:hover{background:var(--steel);} .btn:disabled{background:var(--line); cursor:not-allowed;}
+  .btn.ghost{background:none; color:var(--steel); border:1px solid var(--line);} .btn.ghost:hover{background:var(--icelite);}
+  .result{text-align:center; background:var(--white); border:1px solid var(--line); border-radius:18px; padding:40px 26px; box-shadow:var(--shadow);}
+  .scorering{width:158px; height:158px; border-radius:50%; margin:0 auto 18px; display:flex; align-items:center; justify-content:center; flex-direction:column;}
+  .scorering .inner{width:124px; height:124px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; flex-direction:column;}
+  .scorering .pct{font-size:2.2rem; font-weight:800; color:var(--navy); line-height:1;}
+  .scorering .of{font-size:.8rem; color:var(--grey);}
+  .verdict{font-size:1.45rem; font-weight:700; margin:4px 0 6px;}
+  .verdict.pass{color:var(--good);} .verdict.fail{color:var(--bad);}
+  .result p{color:var(--grey); max-width:480px; margin:0 auto 22px;} .result .btn{margin:6px;}
+
+  /* ===== REFERENCE ===== */
+  .ref h3{color:var(--steel); margin-top:26px;}
+  .ref p{color:#33414f;}
+  .ref figure{margin:22px 0; text-align:center;}
+  .ref .figbox{background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; box-shadow:var(--shadow-sm);}
+  .ref figcaption{font-size:.88rem; color:var(--grey); font-style:italic; margin-top:10px;}
+  .keybox{background:var(--ice); border-left:6px solid var(--accent); border-radius:0 12px 12px 0; padding:16px 20px; margin:18px 0;}
+  .keybox b{color:var(--navy);}
+  table.tbl{border-collapse:collapse; width:100%; margin:18px 0; font-size:.94rem; box-shadow:var(--shadow-sm); border-radius:12px; overflow:hidden;}
+  table.tbl th{background:var(--navy); color:#fff; text-align:left; padding:10px 13px;}
+  table.tbl td{border:1px solid var(--line); padding:9px 13px; background:#fff;}
+  table.tbl tr:nth-child(even) td{background:var(--icelite);}
+
+  footer.foot{text-align:center; padding:34px 20px 54px; color:var(--grey); font-size:.86rem; border-top:1px solid var(--line); background:#fff; margin-top:40px;}
+
+  @media (max-width:760px){
+    .stats{grid-template-columns:repeat(2,1fr);} .stat:nth-child(2){border-right:none;}
+    .roles-grid,.inside-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:2.4rem;} .hero-art{display:none;} .book-toc ol{columns:1;}
+  }
+  @media (max-width:560px){ nav.tabs button{padding:13px 12px; font-size:.85rem;} .ch-title{font-size:1.45rem;} }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important; scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="logo"><span class="mark">E</span> ECHOLINK SOLUTIONS</div>
+  <div class="tagline">Professional Training Series</div>
+</div>
+
+<nav class="tabs">
+  <button data-tab="home" class="active">Home</button>
+  <button data-tab="book">Read the Book</button>
+  <button data-tab="quiz">Take a Quiz</button>
+  <button data-tab="ref">Quick Reference</button>
+</nav>
+
+<main>
+  <section id="home" class="view show">
+    <div class="hero">
+      <div class="hero-art"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 640">
+<rect width="920" height="640" fill="#FFFFFF"/>
+<line x1="460" y1="320" x2="460" y2="110" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="642" y2="215" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="642" y2="425" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="460" y2="530" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="278" y2="425" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="278" y2="215" stroke="#C7D2DD" stroke-width="3"/>
+<circle cx="460" cy="320" r="92" fill="#0B2545"/>
+<text x="460" y="312" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Central</text>
+<text x="460" y="340" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Database</text>
+<rect x="375" y="79" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="460" y="116" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Finance</text>
+<rect x="557" y="184" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="642" y="221" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Supply Chain</text>
+<rect x="557" y="394" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="642" y="431" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Sales / CRM</text>
+<rect x="375" y="499" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="460" y="536" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Manufacturing</text>
+<rect x="193" y="394" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="278" y="431" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Human Resources</text>
+<rect x="193" y="184" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="278" y="221" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Project Ops</text>
+<text x="460" y="40" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#13315C" text-anchor="middle">ERP: One Connected System</text>
+</svg></div>
+      <div class="hero-inner">
+        <span class="eyebrow">Microsoft Dynamics 365 · Career Track</span>
+        <h1>Build a career in <span class="accent">ERP</span>,<br>from first ticket to trusted analyst.</h1>
+        <p class="deck">One complete guide to the three roles that run modern business systems — what they do, how they connect, and how to grow from one to the next.</p>
+        <div class="roles">Help Desk Technician · ERP Support Analyst · ERP Business Analyst</div>
+        <div class="cta-row">
+          <button class="cta primary" data-goto="book">Start reading →</button>
+          <button class="cta secondary" data-goto="quiz">Test yourself</button>
+        </div>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 900 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,48 L0,20 C150,46 350,0 480,14 C620,30 760,48 900,22 L900,48 Z" fill="#F5F8FC"/></svg>
+
+    <div class="stats">
+      <div class="stat"><div class="n">3</div><div class="l">Career roles</div></div>
+      <div class="stat"><div class="n">13</div><div class="l">Full chapters</div></div>
+      <div class="stat"><div class="n">14</div><div class="l">Interactive quizzes</div></div>
+      <div class="stat"><div class="n">26</div><div class="l">Interview Q&amp;As</div></div>
+    </div>
+
+    <div class="home-section">
+      <div style="text-align:center; letter-spacing:.2em; font-size:.74rem; font-weight:700; color:var(--accent); text-transform:uppercase;">The three roles</div>
+      <h2>One team. One ladder.</h2>
+      <p class="intro">Most ERP professionals start at the help desk and climb. Each role answers a different question and prepares you for the next.</p>
+      <div class="roles-grid">
+        <div class="role-card hd">
+          <span class="badge">Tier 1 · Entry</span>
+          <h3>Help Desk Technician</h3>
+          <p class="q">&ldquo;How do I get this user working right now?&rdquo;</p>
+          <p>First contact. Receive, triage, resolve common issues, escalate cleanly, and document.</p>
+          <div class="sal">~$45k – $65k</div>
+        </div>
+        <div class="role-card sa">
+          <span class="badge">Tier 2 · Mid</span>
+          <h3>ERP Support Analyst</h3>
+          <p class="q">&ldquo;Why did this break, and how do we stop it?&rdquo;</p>
+          <p>Finds root cause, fixes the source, guards batch jobs and integrations, prevents recurrence.</p>
+          <div class="sal">~$70k – $110k</div>
+        </div>
+        <div class="role-card ba">
+          <span class="badge">Design · Senior</span>
+          <h3>ERP Business Analyst</h3>
+          <p class="q">&ldquo;How should the system work for the business?&rdquo;</p>
+          <p>Turns business needs into testable requirements, runs fit-gap, shapes the solution.</p>
+          <div class="sal">~$85k – $135k</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-section">
+      <div style="text-align:center; letter-spacing:.2em; font-size:.74rem; font-weight:700; color:var(--accent); text-transform:uppercase;">What's inside</div>
+      <h2>Everything in one place</h2>
+      <p class="intro">A full handbook to read, a quiz bank to test yourself, and a quick visual reference — all in this single page.</p>
+      <div class="inside-grid">
+        <div class="inside" data-goto="book">
+          <div class="emoji"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M15 3v5h5"/><path d="M8 13h8M8 17h6"/></svg></div>
+          <h4>The Handbook</h4>
+          <p>13 chapters plus appendices, from what ERP is to interview day — with diagrams throughout.</p>
+        </div>
+        <div class="inside" data-goto="quiz">
+          <div class="emoji"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h4>Self-grading quizzes</h4>
+          <p>14 quizzes with instant feedback, explanations, and a score — one per chapter plus a final exam.</p>
+        </div>
+        <div class="inside" data-goto="ref">
+          <div class="emoji"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div>
+          <h4>Quick reference</h4>
+          <p>The key diagrams and concepts on one screen, for a fast review before a quiz or interview.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-cta">
+      <h2>Ready to begin?</h2>
+      <p>Start with Chapter 1, or jump straight into a quiz to see where you stand.</p>
+      <button class="cta primary" data-goto="book">Open the handbook →</button>
+    </div>
+  </section>
+
+  <section id="book" class="view">
+    <div class="page-head">
+      <div class="kicker">The handbook</div>
+      <h1>The ERP Career</h1>
+      <p>Help Desk, ERP Support Analyst, and ERP Business Analyst in Microsoft Dynamics 365.</p>
+    </div>
+    <nav class="book-toc"><h3>Contents</h3><ol><li><a href="#sec-preface">Preface</a></li><li><a href="#sec-ch1">1 · Understanding ERP</a></li><li><a href="#sec-ch2">2 · Dynamics 365 &amp; Ecosystem</a></li><li><a href="#sec-ch3">3 · How ERP Comes to Life</a></li><li><a href="#sec-ch4">4 · Help Desk Technician</a></li><li><a href="#sec-ch5">5 · ERP Support Analyst</a></li><li><a href="#sec-ch6">6 · ERP Business Analyst</a></li><li><a href="#sec-ch7">7 · Security, Access &amp; Identity</a></li><li><a href="#sec-ch8">8 · Tickets &amp; Service Management</a></li><li><a href="#sec-ch9">9 · Data, Reporting &amp; Integrations</a></li><li><a href="#sec-ch10">10 · Change, Releases &amp; Health</a></li><li><a href="#sec-ch11">11 · Professional Skills</a></li><li><a href="#sec-ch12">12 · The Career Path</a></li><li><a href="#sec-ch13">13 · Interview Q&amp;A</a></li><li><a href="#sec-appx">Appendices</a></li></ol></nav><section class="book-sec" id="sec-preface"><h2 class="bk-h1">Preface</h2><p>Enterprise Resource Planning, or ERP, is the nervous system of a modern organization. When a customer places an order, when an invoice is paid, when a part is pulled from a warehouse, or when a new employee is hired, an ERP system records the event and connects it to everything else the business is doing. Microsoft Dynamics 365 is one of the most widely adopted ERP and business-application platforms in the world, and the people who keep it running are in steady demand.</p><p>This book is about three of those people: the Help Desk technician who is the first human a frustrated user reaches, the ERP Support Analyst who resolves the problems behind those tickets, and the ERP Business Analyst who shapes how the system serves the business in the first place. These three roles form a ladder. Many successful ERP professionals start at the help desk, grow into support, and move into analysis and beyond.</p><p>Echolink Solutions built this handbook because we kept meeting capable people who could not see the path. They knew Dynamics 365 was important. They did not know what the jobs actually involved, what a normal day looked like, or how to move from one rung to the next. This book answers those questions in plain language, with concrete examples drawn from real Dynamics 365 work.</p><p>You do not need prior ERP experience to start. You do need curiosity, patience with detail, and a willingness to learn how a business actually runs. By the end you will understand each role well enough to interview for it, perform it, and plan your growth beyond it.</p><div class="callout"><div class="callout-t">A note on philosophy</div>
+        <p>At Echolink we teach that the class is the build and the build is the class. You will not just read about Dynamics 365. You will open it, break things in a safe sandbox, fix them, and document what you did. That is exactly what the job is.</p></div></section><section class="book-sec" id="sec-ch1"><div class="ch-open" id="ch-1">
+        <div class="ch-kicker">Chapter 1</div>
+        <h2 class="ch-title">Understanding ERP</h2>
+        <p class="ch-sub">What enterprise resource planning is, why it matters, and where careers live inside it.</p></div><h3 class="bk-h2">1.1 What ERP actually means</h3><p>Enterprise Resource Planning is software that ties a company's core operations into one connected system with one shared database. Instead of finance keeping its own spreadsheets, sales keeping a separate contact list, and the warehouse keeping a third record of stock, an ERP system holds a single version of the truth that every department reads from and writes to.</p><p>Consider a simple sale. A salesperson creates a quote. The customer accepts, and the quote becomes a sales order. The warehouse sees the order, picks the product, and ships it. Finance turns the shipment into an invoice, collects payment, and books the revenue. Inventory counts drop automatically. In a business without ERP, each of those steps lives in a different tool, and someone re-keys the data between them, introducing delay and error. In an ERP system, it is one continuous flow of connected records.</p><div class="callout"><div class="callout-t">The one-sentence definition</div>
+        <p>ERP is a single connected system that manages a company's money, materials, people, and customers so that everyone works from the same accurate data.</p></div><h3 class="bk-h2">1.2 The core modules</h3><p>ERP platforms are organized into modules. A module is a functional area of the business. You do not have to master all of them, but every ERP professional should recognize what each one does. The most common modules are:</p><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Module</th><th>What it manages</th><th>Typical users</th></tr><tr><td>Finance</td><td>General ledger, accounts payable and receivable, budgets, tax, reporting</td><td>Accountants, controllers, CFO</td></tr><tr><td>Supply Chain</td><td>Inventory, purchasing, warehouses, vendors, logistics</td><td>Buyers, warehouse staff, planners</td></tr><tr><td>Sales / CRM</td><td>Leads, opportunities, quotes, orders, customer records</td><td>Sales reps, account managers</td></tr><tr><td>Manufacturing</td><td>Production orders, bills of material, scheduling, quality</td><td>Plant managers, schedulers</td></tr><tr><td>Human Resources</td><td>Employee records, payroll inputs, benefits, org structure</td><td>HR staff, managers</td></tr><tr><td>Project Operations</td><td>Project budgets, time, billing, resource planning</td><td>Project managers, consultants</td></tr></table></div><p>The power of ERP comes from the connections between these modules. A production order in manufacturing consumes inventory tracked in supply chain, generates labor cost that lands in finance, and may be tied to a customer order in sales. One event, many connected records.</p><figure class="bk-fig"><div class="figbox"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 640">
+<rect width="920" height="640" fill="#FFFFFF"/>
+<line x1="460" y1="320" x2="460" y2="110" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="642" y2="215" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="642" y2="425" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="460" y2="530" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="278" y2="425" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="278" y2="215" stroke="#C7D2DD" stroke-width="3"/>
+<circle cx="460" cy="320" r="92" fill="#0B2545"/>
+<text x="460" y="312" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Central</text>
+<text x="460" y="340" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Database</text>
+<rect x="375" y="79" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="460" y="116" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Finance</text>
+<rect x="557" y="184" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="642" y="221" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Supply Chain</text>
+<rect x="557" y="394" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="642" y="431" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Sales / CRM</text>
+<rect x="375" y="499" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="460" y="536" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Manufacturing</text>
+<rect x="193" y="394" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="278" y="431" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Human Resources</text>
+<rect x="193" y="184" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="278" y="221" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Project Ops</text>
+<text x="460" y="40" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#13315C" text-anchor="middle">ERP: One Connected System</text>
+</svg></div>
+        <figcaption>Figure 1.1  Every module reads from and writes to one shared central database.</figcaption></figure><h3 class="bk-h2">1.3 Why companies invest in ERP</h3><p>ERP implementations are expensive and demanding, so organizations only undertake them for serious reasons. Understanding those reasons helps you understand what your job is ultimately protecting.</p><ul class="bk-list"><li>A single source of truth. Everyone sees the same numbers, so decisions are based on shared, current data rather than conflicting spreadsheets.</li><li>Automation of routine work. Orders flow to invoices, stock reorders trigger automatically, and approvals route to the right person without manual handoffs.</li><li>Visibility and reporting. Leaders can see cash flow, inventory levels, and sales pipeline in real time instead of waiting for month-end.</li><li>Compliance and audit. The system records who did what and when, which is essential for financial controls and regulatory requirements.</li><li>Scalability. A growing company can add users, locations, and legal entities without rebuilding its operations from scratch.</li></ul><h3 class="bk-h2">1.4 Cloud ERP and the modern landscape</h3><p>Older ERP systems were installed on servers inside the company's own building, which is called on-premise deployment. Today most new ERP runs in the cloud, hosted and maintained by the vendor and accessed through a web browser. Cloud ERP updates continuously, scales on demand, and shifts the burden of servers and patching away from the customer. Microsoft Dynamics 365 is a cloud-first platform, which is one reason it features so heavily in this book and in today's job market.</p><h3 class="bk-h2">1.5 Where careers live inside ERP</h3><p>Every ERP system needs people across its whole life. Some design and build it. Some keep it running once it is live. Some help users every day. This book focuses on the three roles most accessible to people entering the field, and the three that form the clearest career ladder:</p><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Role</th><th>Core question they answer</th><th>Position on the ladder</th></tr><tr><td>Help Desk Technician</td><td>How do I get this user working again right now?</td><td>Entry point</td></tr><tr><td>ERP Support Analyst</td><td>Why did this break, and how do we stop it recurring?</td><td>Mid-level</td></tr><tr><td>ERP Business Analyst</td><td>How should the system work to serve the business?</td><td>Senior / strategic</td></tr></table></div><figure class="bk-fig"><div class="figbox"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470">
+<rect width="960" height="470" fill="#FFFFFF"/>
+<text x="480.0" y="42" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="bold" fill="#13315C" text-anchor="middle">Three Roles, One Team</text>
+<rect x="30.0" y="80" width="290" height="350" rx="14" fill="#D6E4F0" stroke="#C9A227" stroke-width="2"/>
+<text x="175.0" y="124" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#0B2545" text-anchor="middle">HELP DESK</text>
+<text x="175.0" y="152" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#0B2545" opacity="0.85" text-anchor="middle">Tier 1</text>
+<line x1="60.0" y1="170" x2="290.0" y2="170" stroke="#0B2545" stroke-width="1" opacity="0.4"/>
+<text x="175.0" y="208" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#0B2545" text-anchor="middle">“How do I get this user</text>
+<text x="175.0" y="232" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#0B2545" text-anchor="middle">working again right now?”</text>
+<text x="175.0" y="310" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#0B2545" text-anchor="middle">Receive, triage,</text>
+<text x="175.0" y="334" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#0B2545" text-anchor="middle">resolve, escalate</text>
+<text x="327.5" y="255.0" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#C9A227" text-anchor="middle">→</text>
+<rect x="335.0" y="80" width="290" height="350" rx="14" fill="#2E75B6" stroke="#C9A227" stroke-width="2"/>
+<text x="480.0" y="124" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">SUPPORT ANALYST</text>
+<text x="480.0" y="152" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" opacity="0.85" text-anchor="middle">Tier 2</text>
+<line x1="365.0" y1="170" x2="595.0" y2="170" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
+<text x="480.0" y="208" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#FFFFFF" text-anchor="middle">“Why did this break,</text>
+<text x="480.0" y="232" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#FFFFFF" text-anchor="middle">and how do we stop it?”</text>
+<text x="480.0" y="310" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Root cause, config,</text>
+<text x="480.0" y="334" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">batch, integrations</text>
+<text x="632.5" y="255.0" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#C9A227" text-anchor="middle">→</text>
+<rect x="640.0" y="80" width="290" height="350" rx="14" fill="#13315C" stroke="#C9A227" stroke-width="2"/>
+<text x="785.0" y="124" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">BUSINESS ANALYST</text>
+<text x="785.0" y="152" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" opacity="0.85" text-anchor="middle">Design</text>
+<line x1="670.0" y1="170" x2="900.0" y2="170" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
+<text x="785.0" y="208" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#FFFFFF" text-anchor="middle">“How should the system</text>
+<text x="785.0" y="232" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#FFFFFF" text-anchor="middle">work for the business?”</text>
+<text x="785.0" y="310" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Requirements, fit-gap,</text>
+<text x="785.0" y="334" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">process, UAT</text>
+</svg></div>
+        <figcaption>Figure 1.2  The three roles form a team and a career ladder, each answering a different question.</figcaption></figure><p>These roles are the subject of Chapters 4, 5, and 6. Before we get there, Chapter 2 introduces the specific platform you will work in, and Chapter 3 explains how an ERP system comes to life so that you understand the world your role lives inside.</p><h4 class="bk-h3">Key terms</h4><ul class="bk-list"><li>ERP (Enterprise Resource Planning): connected software managing a company's core operations from one database.</li><li>Module: a functional area of an ERP system, such as Finance or Supply Chain.</li><li>Single source of truth: the principle that all departments read and write to the same shared data.</li><li>Cloud / on-premise: ERP hosted by the vendor over the internet, versus installed on the company's own servers.</li></ul><h4 class="bk-h3">Review questions</h4><ol class="bk-list"><li class="oli">In your own words, explain the difference between a business that uses ERP and one that does not when processing a customer order.</li><li class="oli">Name four common ERP modules and one type of user for each.</li><li class="oli">List three reasons a company would invest in an ERP system.</li><li class="oli">Why does cloud deployment change the work of the people who support ERP?</li></ol><h4 class="bk-h3">Hands-on lab 1</h4><div class="callout"><div class="callout-t">Map a business process</div>
+        <p>Pick any business you know well (a coffee shop, an online store, a clinic). On one page, map what happens from the moment a customer wants something to the moment the business is paid.</p><p>Mark which ERP module would own each step. Identify one place where data is re-entered today and how ERP would remove it.</p><p>Deliverable: a one-page process map with modules labeled.</p></div></section><section class="book-sec" id="sec-ch2"><div class="ch-open" id="ch-2">
+        <div class="ch-kicker">Chapter 2</div>
+        <h2 class="ch-title">Microsoft Dynamics 365 and the Microsoft 365 Ecosystem</h2>
+        <p class="ch-sub">The platform you will support, and the productivity tools wrapped around it.</p></div><h3 class="bk-h2">2.1 Two names, one ecosystem</h3><p>People often blur Microsoft 365 and Dynamics 365 together. They are related but different, and knowing the difference is part of speaking the language of the job.</p><p>Microsoft 365 is the productivity suite: Outlook, Word, Excel, Teams, SharePoint, OneDrive, and the identity service that signs everyone in. Dynamics 365 is the business-application platform that sits on top of that same identity and cloud foundation. It includes the ERP and CRM applications a company actually runs its operations on. Because they share the same login, the same Microsoft cloud, and tight integration, supporting one almost always means touching the other.</p><div class="callout"><div class="callout-t">Plain comparison</div>
+        <p>Microsoft 365 = the tools people use to communicate and create (email, documents, chat).</p><p>Dynamics 365 = the business applications people use to run operations (finance, sales, supply chain, service).</p><p>They live in the same house and share the same front door (your Microsoft work account).</p></div><figure class="bk-fig"><div class="figbox"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520">
+<rect width="920" height="520" fill="#FFFFFF"/>
+<text x="460.0" y="40" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="bold" fill="#13315C" text-anchor="middle">The Microsoft Cloud Ecosystem</text>
+<rect x="70" y="80" width="360" height="150" rx="14" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="250" y="116" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#0B2545" text-anchor="middle">Microsoft 365</text>
+<text x="250" y="146" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#0B2545" text-anchor="middle">Outlook  •  Teams  •  Word</text>
+<text x="250" y="170" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#0B2545" text-anchor="middle">Excel  •  SharePoint  •  OneDrive</text>
+<text x="250" y="200" font-family="Helvetica, Arial, sans-serif" font-size="14" font-style="italic" fill="#5A6675" text-anchor="middle">Tools to communicate &amp; create</text>
+<rect x="490" y="80" width="360" height="150" rx="14" fill="#13315C" stroke="#C9A227" stroke-width="2.5"/>
+<text x="670" y="116" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Dynamics 365</text>
+<text x="670" y="146" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle">Finance  •  Supply Chain  •  Sales</text>
+<text x="670" y="170" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle">Customer Service  •  Business Central</text>
+<text x="670" y="200" font-family="Helvetica, Arial, sans-serif" font-size="14" font-style="italic" fill="#D6E4F0" text-anchor="middle">Apps to run operations</text>
+<rect x="70" y="270" width="780" height="80" rx="12" fill="#2E75B6" stroke="#0B2545" stroke-width="2"/>
+<text x="460" y="305" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Power Platform  •  Dataverse</text>
+<text x="460" y="332" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle">Power Apps  •  Power Automate  •  Power BI</text>
+<rect x="70" y="370" width="780" height="70" rx="12" fill="#0B2545"/>
+<text x="460" y="404" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Microsoft Entra ID</text>
+<text x="460" y="428" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#D6E4F0" text-anchor="middle">One identity / sign-in for everything above</text>
+<line x1="250" y1="230" x2="250" y2="270" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="670" y1="230" x2="670" y2="270" stroke="#C7D2DD" stroke-width="3"/>
+</svg></div>
+        <figcaption>Figure 2.1  Microsoft 365 and Dynamics 365 sit on a shared cloud foundation and a single identity.</figcaption></figure><h3 class="bk-h2">2.2 The Dynamics 365 applications</h3><p>Dynamics 365 is not a single program. It is a family of applications that a company licenses individually based on what it needs. The major ones you should know:</p><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Application</th><th>Category</th><th>What it does</th></tr><tr><td>Finance</td><td>ERP</td><td>Core accounting, general ledger, budgeting, financial reporting</td></tr><tr><td>Supply Chain Management</td><td>ERP</td><td>Inventory, purchasing, warehouses, manufacturing, planning</td></tr><tr><td>Sales</td><td>CRM</td><td>Leads, opportunities, quotes, the sales pipeline</td></tr><tr><td>Customer Service</td><td>CRM</td><td>Cases, support queues, service-level agreements, knowledge base</td></tr><tr><td>Business Central</td><td>ERP (SMB)</td><td>All-in-one ERP for small and mid-size businesses</td></tr><tr><td>Project Operations</td><td>ERP/CRM</td><td>Project planning, time and expense, project billing</td></tr><tr><td>Human Resources</td><td>ERP</td><td>Employee records, leave, benefits, org management</td></tr></table></div><p>A large enterprise might run Finance and Supply Chain Management together (this pairing is often called Finance and Operations, or F&amp;O). A smaller company might run Business Central alone because it bundles similar capability into one simpler application. As a support or analyst professional, you will usually specialize in one or two of these.</p><h3 class="bk-h2">2.3 The Power Platform underneath</h3><p>Dynamics 365 is built on a foundation called the Power Platform and a shared data store called Dataverse. You do not need to be an expert on day one, but you should recognize these names because they appear constantly in real work:</p><ul class="bk-list"><li>Dataverse: the secure database where Dynamics 365 customer-engagement data lives. Tables, columns, and relationships you will hear about often live here.</li><li>Power Apps: the tool used to build and customize the screens and forms users interact with.</li><li>Power Automate: the workflow engine that sends approvals, notifications, and automated steps. Many tickets you handle will involve a flow that did or did not run.</li><li>Power BI: the reporting and dashboard tool that visualizes ERP data for leaders.</li></ul><h3 class="bk-h2">2.4 How users actually reach the system</h3><p>Most users open Dynamics 365 in a web browser after signing in with their Microsoft work account. That sign-in is managed by Microsoft Entra ID, the identity service formerly known as Azure Active Directory. A large share of help desk tickets are not really about ERP features at all; they are about sign-in, access, and permissions, all of which trace back to that identity layer. This is why Chapter 7 treats access and security as a core support skill.</p><h3 class="bk-h2">2.5 Why Dynamics 365 matters for your career</h3><p>Microsoft is one of the dominant vendors in business applications, and organizations of every size run Dynamics. Skills in this platform transfer across industries, from manufacturing to healthcare to retail. Because Dynamics shares its foundation with the rest of the Microsoft cloud that companies already use, demand for people who understand the whole ecosystem, not just one app, is strong and durable.</p><h4 class="bk-h3">Key terms</h4><ul class="bk-list"><li>Microsoft 365: the productivity suite (Outlook, Teams, Office, SharePoint) and shared identity.</li><li>Dynamics 365: the family of ERP and CRM business applications.</li><li>Finance and Operations (F&amp;O): the common pairing of Dynamics 365 Finance and Supply Chain Management.</li><li>Dataverse: the underlying data store for customer-engagement apps.</li><li>Microsoft Entra ID: the identity service that handles sign-in and access (formerly Azure AD).</li></ul><h4 class="bk-h3">Review questions</h4><ol class="bk-list"><li class="oli">Explain the difference between Microsoft 365 and Dynamics 365 to a non-technical friend.</li><li class="oli">Name three Dynamics 365 applications and say whether each is ERP or CRM.</li><li class="oli">What is the Power Platform, and name two of its tools that a support analyst encounters often.</li><li class="oli">Why do so many ERP help desk tickets actually trace back to identity and access?</li></ol><h4 class="bk-h3">Hands-on lab 2</h4><div class="callout"><div class="callout-t">Tour a Dynamics 365 trial</div>
+        <p>Sign up for a free Dynamics 365 trial (Sales or Business Central). Sign in with the trial account and locate the app launcher.</p><p>Find and note: the main navigation, where records (such as accounts or items) are listed, and where settings live.</p><p>Deliverable: a labeled screenshot tour, in your own words, of five key areas of the interface.</p></div></section><section class="book-sec" id="sec-ch3"><div class="ch-open" id="ch-3">
+        <div class="ch-kicker">Chapter 3</div>
+        <h2 class="ch-title">How an ERP System Comes to Life</h2>
+        <p class="ch-sub">The implementation lifecycle and the environments your work moves through.</p></div><h3 class="bk-h2">3.1 Why the lifecycle matters to you</h3><p>Even if you join a company long after its ERP is live, the system you support was built through a structured project, and it keeps changing through smaller versions of that same process. Understanding the lifecycle tells you why things are configured the way they are, who decided, and how new changes safely reach the users you support.</p><h3 class="bk-h2">3.2 The implementation phases</h3><p>Microsoft describes implementation through a methodology often called Success by Design, but every ERP project follows roughly the same arc. The common phases are:</p><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Phase</th><th>What happens</th><th>Who leads</th></tr><tr><td>Initiate</td><td>Goals, scope, budget, and team are set</td><td>Sponsors, project manager</td></tr><tr><td>Implement</td><td>Requirements gathered, system configured and built</td><td>Business analysts, consultants</td></tr><tr><td>Prepare</td><td>Testing, data migration, user training</td><td>Analysts, testers, trainers</td></tr><tr><td>Go-live</td><td>System switches on for real use (cutover)</td><td>Whole team</td></tr><tr><td>Operate</td><td>Day-to-day running, support, and improvement</td><td>Support analysts, help desk</td></tr></table></div><p>Notice the last phase. Operate is where help desk and support analysts spend their careers, and where business analysts keep refining the system. Most of this book lives in the Operate phase, but the earlier phases explain how the system you inherit came to be.</p><h3 class="bk-h2">3.3 Requirements, fit-gap, and configuration</h3><p>In the Implement phase, business analysts gather requirements, which are statements of what the business needs the system to do. They then run a fit-gap analysis, comparing each requirement against what Dynamics 365 does out of the box. Where the system already does it, that is a fit. Where it does not, that is a gap, which must be closed by configuration, by a customization, or by changing the business process. This vocabulary returns in Chapter 6, where the business analyst role is examined in depth.</p><div class="callout"><div class="callout-t">Configure versus customize</div>
+        <p>Configuration means setting options the system already supports, such as turning on a feature or defining a tax rule. It is safe and upgrade-friendly.</p><p>Customization means building something new with code or low-code tools. It is powerful but adds cost and maintenance.</p><p>A good analyst exhausts configuration before reaching for customization. Remember this; it is a frequent interview question.</p></div><h3 class="bk-h2">3.4 Environments: where work is safely separated</h3><p>You will hear people talk about moving something from dev, to test, to production. These are environments, which are separate copies of the system used for different purposes so that unfinished work never disrupts real business. The standard set is:</p><ul class="bk-list"><li>Development (Dev): where changes are first built and tried. Breaking things here is expected and safe.</li><li>Test / UAT: where finished changes are validated. UAT stands for User Acceptance Testing, where real users confirm the change works for them.</li><li>Sandbox: a safe non-production copy, often refreshed from production, used for training and for reproducing problems.</li><li>Production (Prod): the live system the whole company depends on. Changes reach here only after testing and approval.</li></ul><p>A change moves in one direction, from dev toward production, gaining approvals as it goes. This controlled movement is the heart of release management, covered later. As a support analyst you will frequently reproduce a reported problem in a sandbox before anyone touches production.</p><h3 class="bk-h2">3.5 Data migration and integration</h3><p>Before go-live, existing data, customers, vendors, items, open balances, must be moved into the new system. This is data migration, and it is one of the riskiest parts of any project. Separately, ERP rarely lives alone; it connects to other systems such as a bank, a tax service, or a warehouse scanner. These connections are integrations. When an integration fails, it often surfaces first as a support ticket, which is why Chapter 9 devotes attention to it.</p><h4 class="bk-h3">Key terms</h4><ul class="bk-list"><li>Implementation lifecycle: the phased project that takes an ERP system from idea to live operation.</li><li>Fit-gap analysis: comparing business requirements against what the system does out of the box.</li><li>Configuration vs customization: setting supported options versus building new functionality.</li><li>Environment: a separate copy of the system (dev, test, sandbox, production) used to isolate work.</li><li>UAT (User Acceptance Testing): real users validating a change before it goes live.</li></ul><h4 class="bk-h3">Review questions</h4><ol class="bk-list"><li class="oli">List the five phases of an ERP implementation and say which one support roles work in.</li><li class="oli">Explain the difference between a fit and a gap.</li><li class="oli">Why should an analyst prefer configuration over customization where possible?</li><li class="oli">Describe the purpose of each environment: dev, test, sandbox, production.</li><li class="oli">Why does an integration failure often appear first as a support ticket?</li></ol><h4 class="bk-h3">Hands-on lab 3</h4><div class="callout"><div class="callout-t">Trace a change through environments</div>
+        <p>Draw a diagram showing a single change (for example, adding a new field to a form) moving from development, to test/UAT, to production.</p><p>At each stage, write who is involved, what they check, and what could go wrong if the stage were skipped.</p><p>Deliverable: a one-page release-flow diagram with annotations.</p></div></section><section class="book-sec" id="sec-ch4"><div class="ch-open" id="ch-4">
+        <div class="ch-kicker">Chapter 4</div>
+        <h2 class="ch-title">The Help Desk Technician</h2>
+        <p class="ch-sub">The front line: first contact, first response, and the foundation of every ERP career.</p></div><h3 class="bk-h2">4.1 The role in one paragraph</h3><p>The Help Desk Technician, sometimes called Tier 1 or first-line support, is the first person a user reaches when something is wrong in Dynamics 365 or the surrounding Microsoft 365 tools. The job is to answer quickly, calm the user, solve what can be solved immediately, and cleanly hand off what cannot. The help desk does not fix the deepest technical problems, but it controls the experience every user has of the entire ERP support function. A great help desk makes a company feel well run.</p><div class="callout"><div class="callout-t">Why this role is the doorway</div>
+        <p>Almost every ERP support analyst and many business analysts started at a help desk. It teaches you the system, the users, the business vocabulary, and the discipline of ticketing faster than any other role. Treat it as paid training for everything that follows.</p></div><h3 class="bk-h2">4.2 Core responsibilities</h3><p>The day-to-day responsibilities of a Dynamics 365 help desk technician cluster into a handful of repeatable activities:</p><ul class="bk-list"><li>Receive and log requests. Every call, email, chat, or portal submission becomes a ticket with a clear summary, the user's details, and what they were trying to do.</li><li>Triage and prioritize. Decide how urgent and how widespread each issue is, so a company-wide outage is not stuck behind a single password reset.</li><li>Resolve common issues directly. Password and sign-in help, access requests, navigation guidance, printing and reporting questions, and known recurring fixes.</li><li>Escalate correctly. When an issue is beyond first-line scope, route it to the right team with enough detail that no one has to start over.</li><li>Communicate status. Keep the user informed, set expectations on timing, and confirm the fix worked before closing.</li><li>Document everything. Update the ticket and contribute to the knowledge base so the next person solves it faster.</li></ul><h3 class="bk-h2">4.3 A day in the life</h3><p>A help desk shift is rhythmic. The morning often brings a surge as people start work and hit sign-in or access issues. Here is a representative slice of a Dynamics 365 help desk day:</p><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Time</th><th>What lands</th><th>What the technician does</th></tr><tr><td>8:05</td><td>User cannot sign in to Finance</td><td>Verify identity, check account status in Entra ID, reset or unlock, confirm access</td></tr><tr><td>8:40</td><td>Five users report a slow page</td><td>Recognize a possible widespread issue, raise priority, alert support analyst</td></tr><tr><td>9:30</td><td>New hire needs system access</td><td>Follow access-request procedure, assign the correct security role, document</td></tr><tr><td>11:00</td><td>Report will not export to Excel</td><td>Reproduce, apply known fix from knowledge base, confirm with user</td></tr><tr><td>1:15</td><td>Order cannot be saved, error code</td><td>Capture the exact error and steps, escalate to support analyst with full detail</td></tr><tr><td>3:30</td><td>User confused by a new screen</td><td>Walk through it, then add a short how-to article to the knowledge base</td></tr></table></div><p>Notice how much of the day is communication and routing, not deep technical surgery. The technician's superpower is fast, accurate judgment about what to solve now and what to pass on.</p><h3 class="bk-h2">4.4 The skills that matter most</h3><h4 class="bk-h3">Technical skills</h4><ul class="bk-list"><li>Comfort navigating Dynamics 365 and Microsoft 365 apps and finding where things live.</li><li>Basic identity and access tasks: password resets, account unlocks, and reading whether a user has the right role.</li><li>Reading and recording error messages precisely, including codes and the exact steps that produced them.</li><li>Using a ticketing system and a knowledge base efficiently.</li></ul><h4 class="bk-h3">Human skills (often the deciding factor)</h4><ul class="bk-list"><li>Patience and empathy. Users contact you on a bad moment; how you respond defines their day.</li><li>Clear plain-language communication, spoken and written, with non-technical people.</li><li>Calm under pressure when several issues arrive at once.</li><li>Discipline to document even when busy, because undocumented fixes are lost work.</li></ul><h3 class="bk-h2">4.5 Tools of the trade</h3><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Tool</th><th>Purpose at the help desk</th></tr><tr><td>Ticketing system (e.g., Dynamics 365 Customer Service, ServiceNow)</td><td>Log, track, and route every request</td></tr><tr><td>Microsoft Entra admin center</td><td>Check accounts, reset passwords, review access</td></tr><tr><td>Knowledge base</td><td>Find proven fixes and write new how-to articles</td></tr><tr><td>Microsoft Teams</td><td>Reach users and escalate to analysts quickly</td></tr><tr><td>Remote assistance tools</td><td>See the user's screen to diagnose faster</td></tr></table></div><h3 class="bk-h2">4.6 How performance is measured</h3><p>Help desk work is one of the most measured jobs in technology. You should understand the common metrics not to be afraid of them but to know what good looks like:</p><ul class="bk-list"><li>First response time: how quickly the user hears back after submitting a ticket.</li><li>First contact resolution: the share of tickets solved on the first interaction without escalation.</li><li>Average handle time: how long a ticket takes to close, balanced against doing it right.</li><li>Customer satisfaction (CSAT): the user's rating of the help they received.</li><li>Escalation rate: how often tickets must be passed up, which can signal training needs or genuinely hard problems.</li></ul><h3 class="bk-h2">4.7 Common ticket types in Dynamics 365</h3><p>To make the role concrete, here are the categories that fill most Dynamics 365 help desk queues, with the first-line approach to each:</p><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Ticket type</th><th>First-line approach</th></tr><tr><td>Cannot sign in</td><td>Check Entra ID account state; reset password or unlock; verify license is assigned</td></tr><tr><td>Missing access to a screen or record</td><td>Confirm the user's security role; request the correct role through proper approval</td></tr><tr><td>Error when saving a record</td><td>Capture exact error and steps; check if a known issue; escalate with detail if not</td></tr><tr><td>Report or export problem</td><td>Reproduce; apply known fix; confirm data and filters are correct</td></tr><tr><td>How do I do X</td><td>Guide the user; create or link a knowledge-base article for next time</td></tr><tr><td>Performance or outage</td><td>Check scope; if widespread, raise priority and alert support analyst immediately</td></tr></table></div><h3 class="bk-h2">4.8 Growing out of the help desk</h3><p>The help desk is a launchpad. The technicians who advance fastest are the ones who do not just close tickets but notice patterns. When you see the same error ten times, you are beginning to think like a support analyst. When you ask why the process forces users into that error at all, you are beginning to think like a business analyst. Chapter 12 lays out the full path; for now, know that excellence here is the most reliable ticket to the next role.</p><h4 class="bk-h3">Key terms</h4><ul class="bk-list"><li>Tier 1 / first-line support: the first point of contact for user issues.</li><li>Triage: assessing and prioritizing incoming issues.</li><li>Escalation: routing an issue to a higher tier with full context.</li><li>First contact resolution: solving an issue on the first interaction.</li><li>CSAT: customer satisfaction, a common help desk quality measure.</li></ul><h4 class="bk-h3">Review questions</h4><ol class="bk-list"><li class="oli">List the six core responsibilities of a help desk technician.</li><li class="oli">Why is documentation considered part of resolving a ticket, not an optional extra?</li><li class="oli">Give two examples of issues a technician resolves directly and two they would escalate.</li><li class="oli">Define first contact resolution and explain why a company values it.</li><li class="oli">Describe one behavior at the help desk that signals readiness for a support analyst role.</li></ol><h4 class="bk-h3">Hands-on lab 4</h4><div class="callout"><div class="callout-t">Write and triage tickets</div>
+        <p>Given five short user complaints (your instructor will provide them, or invent realistic ones), write a clean ticket for each: summary, user, steps to reproduce, priority, and category.</p><p>Then sort them by priority and mark which you would resolve at Tier 1 and which you would escalate, with a one-line reason each.</p><p>Deliverable: five written tickets plus a prioritized triage list.</p></div></section><section class="book-sec" id="sec-ch5"><div class="ch-open" id="ch-5">
+        <div class="ch-kicker">Chapter 5</div>
+        <h2 class="ch-title">The ERP Support Analyst</h2>
+        <p class="ch-sub">The problem solver: keeping Dynamics 365 healthy and turning recurring pain into permanent fixes.</p></div><h3 class="bk-h2">5.1 The role in one paragraph</h3><p>The ERP Support Analyst, often called Tier 2 or application support, owns the problems the help desk cannot resolve. Where the technician restores a single user, the analyst diagnoses why something broke, fixes it at the source, and works to prevent it from happening again. This role sits between the day-to-day help desk and the change-shaping business analyst. It demands deeper knowledge of how Dynamics 365 is configured, how data flows through it, and how its integrations behave.</p><div class="callout"><div class="callout-t">Help desk vs support analyst, in one line</div>
+        <p>The help desk gets the user working again. The support analyst makes sure the problem stops happening.</p></div><h3 class="bk-h2">5.2 Core responsibilities</h3><ul class="bk-list"><li>Resolve escalated incidents. Take the hard tickets the help desk routed up and drive them to a real resolution.</li><li>Investigate root cause. Move past the symptom to find why the issue occurred, using logs, configuration, and data.</li><li>Reproduce issues safely. Recreate reported problems in a sandbox to understand them without risking production.</li><li>Maintain configuration. Adjust settings, security roles, number sequences, workflows, and other supported options within approved change control.</li><li>Monitor integrations and batch jobs. Watch the automated processes and connections that move data, and respond when they fail.</li><li>Support month-end and period close. Ensure the financial and operational processes that run on a schedule complete cleanly.</li><li>Improve and document. Convert recurring issues into permanent fixes, knowledge articles, and prevention.</li></ul><h3 class="bk-h2">5.3 The incident-to-resolution workflow</h3><p>The analyst's craft is a disciplined investigation. A reliable workflow looks like this:</p><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Step</th><th>What the analyst does</th></tr><tr><td>1. Understand</td><td>Read the escalated ticket fully; confirm the exact symptom and who is affected</td></tr><tr><td>2. Reproduce</td><td>Recreate the issue in a sandbox using the user's steps</td></tr><tr><td>3. Diagnose</td><td>Check configuration, security, data, logs, and recent changes to find the cause</td></tr><tr><td>4. Resolve</td><td>Apply the fix; if it needs a production change, route it through change control</td></tr><tr><td>5. Verify</td><td>Confirm with the user and in the system that the issue is truly resolved</td></tr><tr><td>6. Prevent</td><td>Document root cause; update knowledge base; flag if a deeper fix is needed</td></tr></table></div><figure class="bk-fig"><div class="figbox"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330">
+<rect width="960" height="330" fill="#FFFFFF"/>
+<text x="480.0" y="40" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#13315C" text-anchor="middle">Incident-to-Resolution Workflow</text>
+<rect x="45.0" y="130" width="130" height="90" rx="12" fill="#D6E4F0" stroke="#0B2545" stroke-width="2"/>
+<circle cx="110.0" cy="160" r="16" fill="#C9A227"/>
+<text x="110.0" y="166" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">1</text>
+<text x="110.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0B2545" text-anchor="middle">Understand</text>
+<text x="184.0" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#C9A227" text-anchor="middle">›</text>
+<rect x="193.0" y="130" width="130" height="90" rx="12" fill="#D6E4F0" stroke="#0B2545" stroke-width="2"/>
+<circle cx="258.0" cy="160" r="16" fill="#C9A227"/>
+<text x="258.0" y="166" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">2</text>
+<text x="258.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0B2545" text-anchor="middle">Reproduce</text>
+<text x="332.0" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#C9A227" text-anchor="middle">›</text>
+<rect x="341.0" y="130" width="130" height="90" rx="12" fill="#2E75B6" stroke="#0B2545" stroke-width="2"/>
+<circle cx="406.0" cy="160" r="16" fill="#C9A227"/>
+<text x="406.0" y="166" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">3</text>
+<text x="406.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Diagnose</text>
+<text x="480.0" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#C9A227" text-anchor="middle">›</text>
+<rect x="489.0" y="130" width="130" height="90" rx="12" fill="#D6E4F0" stroke="#0B2545" stroke-width="2"/>
+<circle cx="554.0" cy="160" r="16" fill="#C9A227"/>
+<text x="554.0" y="166" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">4</text>
+<text x="554.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0B2545" text-anchor="middle">Resolve</text>
+<text x="628.0" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#C9A227" text-anchor="middle">›</text>
+<rect x="637.0" y="130" width="130" height="90" rx="12" fill="#D6E4F0" stroke="#0B2545" stroke-width="2"/>
+<circle cx="702.0" cy="160" r="16" fill="#C9A227"/>
+<text x="702.0" y="166" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">5</text>
+<text x="702.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0B2545" text-anchor="middle">Verify</text>
+<text x="776.0" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#C9A227" text-anchor="middle">›</text>
+<rect x="785.0" y="130" width="130" height="90" rx="12" fill="#2E75B6" stroke="#0B2545" stroke-width="2"/>
+<circle cx="850.0" cy="160" r="16" fill="#C9A227"/>
+<text x="850.0" y="166" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">6</text>
+<text x="850.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Prevent</text>
+<text x="480.0" y="270" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#5A6675" text-anchor="middle">Strong analysts excel at steps 3 (Diagnose) and 6 (Prevent).</text>
+</svg></div>
+        <figcaption>Figure 5.1  The disciplined path from a reported incident to a prevented recurrence.</figcaption></figure><p>The discipline that separates strong analysts from weak ones lives in steps three and six. Anyone can apply a fix someone else found. The analyst who consistently identifies true root cause, and who closes the loop by preventing recurrence, becomes indispensable.</p><h3 class="bk-h2">5.4 Working with configuration and data</h3><p>Support analysts spend significant time in the settings and data of Dynamics 365. Common areas of responsibility include:</p><ul class="bk-list"><li>Security roles and access: granting and reviewing the roles that control what users can see and do.</li><li>Workflows and Power Automate flows: diagnosing approvals or notifications that did not fire as expected.</li><li>Number sequences and posting setups: the configuration that governs how documents are numbered and how transactions post in Finance.</li><li>Data correction: carefully fixing bad or stuck records, always with a record of what changed and why.</li><li>Batch jobs: the scheduled processes that run integrations, recalculations, and postings, which must be monitored and recovered when they fail.</li></ul><h3 class="bk-h2">5.5 Monitoring, batch jobs, and the month-end rhythm</h3><p>Much of an ERP system runs on a schedule rather than a click. Batch jobs post transactions, recalculate inventory, sync data with other systems, and generate reports overnight. The support analyst is the guardian of these processes. A failed overnight batch can stall an entire morning, so analysts monitor job status, investigate failures quickly, and rerun safely. The most intense and predictable rhythm is the period close, especially month-end, when finance depends on every scheduled process completing correctly so the books can be closed.</p><div class="callout"><div class="callout-t">Month-end is your proving ground</div>
+        <p>During close, finance teams are under deadline pressure, and any stuck job or posting error is urgent. Analysts who stay calm, communicate clearly, and resolve close-period issues reliably earn deep trust from the business.</p></div><h3 class="bk-h2">5.6 The skills that matter most</h3><h4 class="bk-h3">Technical skills</h4><ul class="bk-list"><li>Deep functional knowledge of at least one Dynamics 365 application and its configuration.</li><li>Ability to read logs, error details, and execution traces to find root cause.</li><li>Comfort working with data: filtering, validating, and carefully correcting records.</li><li>Understanding of security roles, workflows, batch jobs, and integrations.</li><li>Familiarity with change control and moving fixes safely toward production.</li></ul><h4 class="bk-h3">Analytical and human skills</h4><ul class="bk-list"><li>Structured problem solving: forming and testing hypotheses rather than guessing.</li><li>Curiosity to keep asking why until the true cause appears.</li><li>Clear written communication for documentation and for explaining technical findings to non-technical users.</li><li>Judgment about when a fix is a quick patch and when it signals a need for the business analyst.</li></ul><h3 class="bk-h2">5.7 How the role connects upward and downward</h3><p>The support analyst is a hub. Downward, they coach the help desk, turning hard-won fixes into knowledge articles so Tier 1 can resolve more on first contact. Upward, they feed the business analyst, because a pattern of incidents often reveals that a process or configuration is wrong by design, not merely broken. Recognizing that boundary, between fixing what is broken and questioning what was built, is the bridge to Chapter 6.</p><h3 class="bk-h2">5.8 How performance is measured</h3><ul class="bk-list"><li>Mean time to resolution: how long escalated incidents take to close.</li><li>Root cause rate: the share of incidents closed with a documented underlying cause, not just a workaround.</li><li>Recurrence rate: how often the same issue comes back, which good analysts drive down.</li><li>Batch and integration health: uptime and clean completion of scheduled processes.</li><li>Knowledge contribution: articles created that lift help desk first-contact resolution.</li></ul><h4 class="bk-h3">Key terms</h4><ul class="bk-list"><li>Tier 2 / application support: the level that resolves escalated, deeper issues.</li><li>Root cause: the underlying reason an issue occurred, beyond its visible symptom.</li><li>Batch job: a scheduled automated process within the ERP system.</li><li>Period close / month-end: the scheduled financial closing that depends on clean processing.</li><li>Change control: the approved process for moving a fix into production.</li></ul><h4 class="bk-h3">Review questions</h4><ol class="bk-list"><li class="oli">Describe the six-step incident-to-resolution workflow.</li><li class="oli">Why is reproducing an issue in a sandbox important before fixing it?</li><li class="oli">Explain root cause and contrast it with a workaround.</li><li class="oli">Why is the support analyst central during month-end close?</li><li class="oli">Give an example of an incident pattern that should be escalated to a business analyst rather than simply fixed again.</li></ol><h4 class="bk-h3">Hands-on lab 5</h4><div class="callout"><div class="callout-t">Run a root-cause investigation</div>
+        <p>Take a described recurring incident (e.g., an approval email never reaches a manager). In a sandbox, reproduce it, then work through the six-step workflow.</p><p>Document your hypotheses, what you checked (workflow/flow configuration, security, data), the cause you found, the fix, and how you would prevent recurrence.</p><p>Deliverable: a one-page root-cause report following the six steps.</p></div></section><section class="book-sec" id="sec-ch6"><div class="ch-open" id="ch-6">
+        <div class="ch-kicker">Chapter 6</div>
+        <h2 class="ch-title">The ERP Business Analyst</h2>
+        <p class="ch-sub">The translator: turning what the business needs into how Dynamics 365 works.</p></div><h3 class="bk-h2">6.1 The role in one paragraph</h3><p>The ERP Business Analyst is the bridge between the business and the system. Where the support analyst asks why something broke, the business analyst asks how the system should work in the first place. They sit with finance, sales, and operations leaders to understand goals and pain points, translate those into clear requirements, and shape how Dynamics 365 is configured to meet them. They are part interviewer, part designer, part diplomat, and part documentarian. They rarely write the deepest code, but they decide, with the business, what should be built and why.</p><div class="callout"><div class="callout-t">The defining skill</div>
+        <p>A business analyst turns a vague business wish into a precise, testable requirement that a system can satisfy. Everything else in the role supports that single act of translation.</p></div><h3 class="bk-h2">6.2 Core responsibilities</h3><ul class="bk-list"><li>Elicit requirements. Interview and workshop with business users to discover what they truly need, not just what they first ask for.</li><li>Document requirements. Write clear, testable specifications, user stories, and process definitions everyone can agree on.</li><li>Run fit-gap analysis. Compare each requirement to what Dynamics 365 does natively and decide configure, customize, or change the process.</li><li>Map business processes. Diagram how work flows today (current state) and how it should flow in the system (future state).</li><li>Configure or guide configuration. Set up the system within supported options, or hand precise designs to technical builders.</li><li>Coordinate testing. Define test cases and lead User Acceptance Testing so the business confirms the solution before go-live.</li><li>Support adoption. Train users, write documentation, and ease the change so people actually use what was built.</li></ul><h3 class="bk-h2">6.3 Requirements: the heart of the craft</h3><p>Everything begins with requirements. A weak requirement causes months of wasted work; a strong one prevents it. Business analysts learn to write requirements that are specific, measurable, and testable. Compare these two:</p><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Weak requirement</th><th>Strong requirement</th></tr><tr><td>The system should handle approvals.</td><td>Purchase orders above 5,000 dollars must route for approval to the requester's manager before they can be confirmed, and the manager must be notified by email within five minutes.</td></tr><tr><td>Reports need to be better.</td><td>Finance needs a monthly report showing revenue by region and product line, exportable to Excel, available by the second business day of each month.</td></tr></table></div><p>The strong versions can be built, tested, and confirmed. Notice that they specify a condition, an action, an actor, and often a measurable expectation. This is the discipline that defines a capable analyst.</p><h3 class="bk-h2">6.4 Eliciting requirements: the techniques</h3><p>Requirements do not arrive neatly. The analyst draws them out using a toolkit of techniques, chosen to fit the situation:</p><ul class="bk-list"><li>Interviews: one-on-one conversations to understand a role's needs in depth.</li><li>Workshops: facilitated group sessions where a process is mapped and disagreements surface and resolve.</li><li>Observation: watching users do their actual work, which often reveals needs they never thought to mention.</li><li>Document analysis: studying current spreadsheets, forms, and reports to infer real requirements.</li><li>Prototyping: showing a draft configuration so users can react to something concrete rather than imagine in the abstract.</li></ul><h3 class="bk-h2">6.5 Process mapping: current state and future state</h3><p>A core deliverable is the process map. The analyst first documents the current state, exactly how a process works today, including its inefficiencies and manual steps. Then they design the future state, how the process should run inside Dynamics 365. The gap between them is the work of the project. Clear process maps align everyone, expose hidden steps, and become the blueprint for configuration and testing.</p><div class="callout"><div class="callout-t">Fit-gap, revisited</div>
+        <p>For each future-state requirement, the analyst asks: does Dynamics 365 already do this? If yes, it is a fit, just configure it. If no, it is a gap, to be closed by customization or by adapting the process. Disciplined analysts prefer configuration and process change over heavy customization, because customization is costly to build and maintain.</p></div><h3 class="bk-h2">6.6 From requirement to working system</h3><p>Once requirements and processes are agreed, the analyst shepherds them into a working solution. They configure the supported options themselves, or hand precise functional designs to developers for anything that must be built. They then define test cases, each tracing back to a requirement, and lead User Acceptance Testing, where real business users confirm the solution does what they asked. Only after the business signs off does the change move toward production through the release process from Chapter 3.</p><h3 class="bk-h2">6.7 The skills that matter most</h3><h4 class="bk-h3">Functional and technical skills</h4><ul class="bk-list"><li>Strong functional knowledge of the Dynamics 365 applications in scope and what they can do natively.</li><li>Requirements writing, user stories, and process modeling.</li><li>Configuration ability within supported options, and enough technical fluency to talk credibly with developers.</li><li>Test design and UAT facilitation.</li></ul><h4 class="bk-h3">Business and human skills</h4><ul class="bk-list"><li>Listening and questioning: drawing out the real need behind a stated request.</li><li>Business acumen: understanding how finance, sales, and operations actually create value.</li><li>Facilitation and diplomacy: aligning stakeholders who want different things.</li><li>Clear writing and presentation, because the analyst's output is largely documents and decisions.</li></ul><h3 class="bk-h2">6.8 Who the business analyst works with</h3><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Group</th><th>Why the analyst engages them</th></tr><tr><td>Business stakeholders (finance, sales, operations)</td><td>To understand needs and confirm solutions meet them</td></tr><tr><td>Support analysts</td><td>To learn which recurring issues reveal design problems</td></tr><tr><td>Developers / technical consultants</td><td>To hand off precise designs for anything that must be built</td></tr><tr><td>Project managers</td><td>To align scope, timeline, and priorities</td></tr><tr><td>End users</td><td>To test, train, and drive adoption</td></tr></table></div><h3 class="bk-h2">6.9 How performance is measured</h3><ul class="bk-list"><li>Requirement quality: how few requirements are reworked or misunderstood downstream.</li><li>Solution fit: whether delivered changes actually meet the business need and get used.</li><li>UAT pass rate: how cleanly the business accepts the solution on testing.</li><li>Adoption: whether users embrace the new process rather than working around it.</li><li>Stakeholder satisfaction: trust earned from the business leaders served.</li></ul><h4 class="bk-h3">Key terms</h4><ul class="bk-list"><li>Requirement: a clear, testable statement of what the business needs the system to do.</li><li>Elicitation: the techniques used to discover requirements from stakeholders.</li><li>Current state / future state: how a process works today versus how it should work in the system.</li><li>Fit-gap: matching requirements to native capability and deciding how to close gaps.</li><li>User story: a short requirement framed from the user's point of view.</li></ul><h4 class="bk-h3">Review questions</h4><ol class="bk-list"><li class="oli">Rewrite a weak requirement into a strong, testable one, and explain what you added.</li><li class="oli">Name four elicitation techniques and a situation where each is best.</li><li class="oli">Explain the difference between current-state and future-state process maps.</li><li class="oli">Why do disciplined analysts prefer configuration and process change over customization?</li><li class="oli">Describe the analyst's role in User Acceptance Testing.</li></ol><h4 class="bk-h3">Hands-on lab 6</h4><div class="callout"><div class="callout-t">Turn a wish into a specification</div>
+        <p>Take a vague business wish (for example, We want to approve big purchases). Interview a classmate playing the stakeholder, then produce: three testable requirements, a simple current-state and future-state process map, and a fit-gap note saying which parts Dynamics 365 likely handles natively.</p><p>Deliverable: a short requirements package (requirements, two process maps, fit-gap note).</p></div></section><section class="book-sec" id="sec-ch7"><div class="ch-open" id="ch-7">
+        <div class="ch-kicker">Chapter 7</div>
+        <h2 class="ch-title">Security, Access, and Identity</h2>
+        <p class="ch-sub">The shared skill at the center of nearly every ERP support ticket.</p></div><h3 class="bk-h2">7.1 Why this chapter applies to all three roles</h3><p>Access is the single most common subject in ERP support. The help desk resets and unlocks accounts. The support analyst grants, reviews, and troubleshoots security roles. The business analyst designs which roles exist and what each may do. Security is therefore a shared language across all three roles, and the place where a misstep can do the most damage. This chapter gives you the foundation each role builds on.</p><h3 class="bk-h2">7.2 Identity: who the user is</h3><p>In the Microsoft world, a user's identity is managed by Microsoft Entra ID. When someone signs in to Dynamics 365, Entra ID confirms who they are. Most sign-in tickets, locked accounts, forgotten passwords, expired credentials, missing multi-factor prompts, are resolved here. A user also needs a license assigned to use a given Dynamics 365 application; a missing license looks like a mysterious access failure until you check.</p><div class="callout"><div class="callout-t">The three questions of access</div>
+        <p>1. Who are you? (identity, handled by Entra ID sign-in)</p><p>2. Are you allowed in this app? (licensing)</p><p>3. What are you allowed to do inside it? (security roles and permissions)</p><p>Most access tickets are one of these three. Learn to tell them apart quickly.</p></div><figure class="bk-fig"><div class="figbox"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300">
+<rect width="920" height="300" fill="#FFFFFF"/>
+<text x="460.0" y="40" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#13315C" text-anchor="middle">The Three Questions of Access</text>
+<rect x="50.0" y="80" width="260" height="170" rx="14" fill="#D6E4F0" stroke="#C9A227" stroke-width="2"/>
+<circle cx="84.0" cy="114" r="20" fill="#C9A227"/>
+<text x="84.0" y="121" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#0B2545" text-anchor="middle">1</text>
+<text x="198.0" y="124" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">Who are you?</text>
+<text x="180.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#0B2545" text-anchor="middle">Identity</text>
+<text x="180.0" y="220" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#0B2545" text-anchor="middle">(Entra ID sign-in)</text>
+<rect x="330.0" y="80" width="260" height="170" rx="14" fill="#2E75B6" stroke="#C9A227" stroke-width="2"/>
+<circle cx="364.0" cy="114" r="20" fill="#C9A227"/>
+<text x="364.0" y="121" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#0B2545" text-anchor="middle">2</text>
+<text x="478.0" y="124" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Are you allowed</text>
+<text x="478.0" y="146" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#FFFFFF" text-anchor="middle">in this app?</text>
+<text x="460.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle">Licensing</text>
+<rect x="610.0" y="80" width="260" height="170" rx="14" fill="#13315C" stroke="#C9A227" stroke-width="2"/>
+<circle cx="644.0" cy="114" r="20" fill="#C9A227"/>
+<text x="644.0" y="121" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#0B2545" text-anchor="middle">3</text>
+<text x="758.0" y="124" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#FFFFFF" text-anchor="middle">What can you</text>
+<text x="758.0" y="146" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#FFFFFF" text-anchor="middle">do inside it?</text>
+<text x="740.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle">Security roles</text>
+<text x="740.0" y="220" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle">&amp; permissions</text>
+</svg></div>
+        <figcaption>Figure 7.1  Nearly every access ticket is one of these three questions.</figcaption></figure><h3 class="bk-h2">7.3 Authorization: what the user may do</h3><p>Once a user is in, security roles control what they can see and change. Dynamics 365 uses role-based security: a role is a bundle of permissions, and users are assigned roles rather than individual permissions. A salesperson role can create opportunities but not post journal entries; a finance role can do the reverse. In Finance and Operations, this is structured into roles, duties, and privileges, layered from broad to narrow. You do not need to memorize the structure now, but you must understand the principle: access is granted through roles, and roles should grant the least access necessary.</p><h3 class="bk-h2">7.4 The principle of least privilege</h3><p>The guiding rule of ERP security is least privilege: give each user exactly the access their job requires, and no more. Over-granting access is a common and dangerous habit, because it creates risk of error and fraud and complicates audits. When a help desk technician is tempted to copy a colleague's access to fix a complaint quickly, the analyst's discipline is to grant only the specific role needed, through proper approval.</p><h3 class="bk-h2">7.5 Segregation of duties</h3><p>Closely related is segregation of duties, the rule that no single person should control a whole sensitive process end to end. The classic example: the person who can create a vendor should not also be able to pay that vendor, because together those powers enable fraud. Dynamics 365 can detect and flag such conflicts. Business analysts design role sets to avoid them; support analysts respect them when granting access; help desk staff escalate rather than override them.</p><h3 class="bk-h2">7.6 Handling access the right way</h3><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Situation</th><th>Right handling</th></tr><tr><td>New hire needs access</td><td>Assign the standard role for their job per an approved access matrix; never copy ad hoc</td></tr><tr><td>User asks for more access</td><td>Require a reason and approval; grant the minimum role that satisfies it</td></tr><tr><td>User leaves the company</td><td>Promptly remove access and reassign or archive their records</td></tr><tr><td>Access request conflicts with duties</td><td>Escalate; do not grant a combination that breaks segregation of duties</td></tr></table></div><h4 class="bk-h3">Key terms</h4><ul class="bk-list"><li>Entra ID: the identity service that authenticates users.</li><li>Security role: a bundle of permissions assigned to users.</li><li>Least privilege: granting only the access a job requires.</li><li>Segregation of duties: separating conflicting powers across different people.</li></ul><h4 class="bk-h3">Review questions</h4><ol class="bk-list"><li class="oli">State the three questions of access and which layer answers each.</li><li class="oli">Explain least privilege and why over-granting is risky.</li><li class="oli">Give an example of a segregation-of-duties conflict and why it matters.</li><li class="oli">Describe the right way to handle a new hire's access request.</li></ol><h4 class="bk-h3">Hands-on lab 7</h4><div class="callout"><div class="callout-t">Build an access matrix</div>
+        <p>For three sample jobs (e.g., AP clerk, sales rep, warehouse lead), list the tasks each must do and the minimum access each needs. Identify one combination that would violate segregation of duties.</p><p>Deliverable: a simple access matrix table plus one flagged conflict.</p></div></section><section class="book-sec" id="sec-ch8"><div class="ch-open" id="ch-8">
+        <div class="ch-kicker">Chapter 8</div>
+        <h2 class="ch-title">Tickets, Incidents, and Service Management</h2>
+        <p class="ch-sub">The shared system of record that connects help desk, support, and analysis.</p></div><h3 class="bk-h2">8.1 The vocabulary of service management</h3><p>ERP support runs on a discipline called IT Service Management. You do not need formal certification to begin, but you must speak its core vocabulary, because it defines how work is tracked across all three roles:</p><ul class="bk-list"><li>Incident: something is broken and needs to be restored. Most help desk tickets are incidents.</li><li>Service request: a routine ask that is not a fault, such as access or a new report.</li><li>Problem: the underlying cause behind one or more incidents, owned by support analysts.</li><li>Change: a planned modification to the system, governed by change control.</li><li>Knowledge article: a documented solution that helps resolve future tickets faster.</li></ul><h3 class="bk-h2">8.2 The lifecycle of a ticket</h3><p>A well-run ticket follows a predictable path, and each role plays its part:</p><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Stage</th><th>What happens</th><th>Owner</th></tr><tr><td>Logged</td><td>Request captured with summary, user, and detail</td><td>Help desk</td></tr><tr><td>Triaged</td><td>Priority and category assigned</td><td>Help desk</td></tr><tr><td>Resolved or escalated</td><td>Fixed at Tier 1, or routed up with full context</td><td>Help desk to support analyst</td></tr><tr><td>Investigated</td><td>Root cause found, fix applied</td><td>Support analyst</td></tr><tr><td>Verified and closed</td><td>User confirms; ticket documented</td><td>Both</td></tr><tr><td>Reviewed</td><td>Patterns analyzed for deeper fixes</td><td>Support and business analyst</td></tr></table></div><h3 class="bk-h2">8.3 Priority and severity</h3><p>Not every ticket is equal. Priority reflects how urgently a ticket must be handled, usually combining impact (how many people or how critical a process) and urgency (how time-sensitive). A single user unable to print is low priority; the entire finance team unable to post during month-end is the highest. Service Level Agreements, or SLAs, set the promised response and resolution times for each priority, and they are a core measure of a support team's performance.</p><div class="callout"><div class="callout-t">A simple priority grid</div>
+        <p>High impact + high urgency = critical (whole team down during close).</p><p>High impact + low urgency = high (a report wrong but not needed today).</p><p>Low impact + high urgency = medium (one user blocked on a deadline).</p><p>Low impact + low urgency = low (a cosmetic annoyance).</p></div><h3 class="bk-h2">8.4 The art of escalation</h3><p>Escalation is where the help desk and support analyst meet, and doing it well is a defining professional skill. A good escalation gives the receiving analyst everything needed to start immediately: the exact symptom, who is affected, the steps to reproduce, the precise error text, what has already been tried, and the business impact. A poor escalation forces the analyst to restart the investigation, wasting the very time escalation was meant to save.</p><h3 class="bk-h2">8.5 Knowledge management closes the loop</h3><p>Every resolved problem is a chance to make the next one faster. When a support analyst documents a root-cause fix as a knowledge article, the help desk can resolve the same issue at first contact next time. Knowledge management is how a support organization gets smarter over time instead of solving the same problem forever. It is also where individual effort becomes lasting team value.</p><h4 class="bk-h3">Key terms</h4><ul class="bk-list"><li>Incident, service request, problem, change: the core categories of service-management work.</li><li>Priority / severity: how urgently and how seriously a ticket is treated.</li><li>SLA: the agreed response and resolution time targets.</li><li>Knowledge article: a documented, reusable solution.</li></ul><h4 class="bk-h3">Review questions</h4><ol class="bk-list"><li class="oli">Distinguish an incident, a service request, a problem, and a change.</li><li class="oli">Explain how impact and urgency combine into priority.</li><li class="oli">List the elements of a high-quality escalation.</li><li class="oli">How does knowledge management raise first-contact resolution over time?</li></ol><h4 class="bk-h3">Hands-on lab 8</h4><div class="callout"><div class="callout-t">Categorize and escalate</div>
+        <p>Given eight sample tickets, label each as incident, service request, problem, or change, and assign a priority using the grid. Choose two to escalate and write full escalation notes for them.</p><p>Deliverable: a categorized, prioritized list plus two escalation write-ups.</p></div></section><section class="book-sec" id="sec-ch9"><div class="ch-open" id="ch-9">
+        <div class="ch-kicker">Chapter 9</div>
+        <h2 class="ch-title">Data, Reporting, and Integrations</h2>
+        <p class="ch-sub">Where ERP value is created, and where many of its hardest tickets begin.</p></div><h3 class="bk-h2">9.1 Data is the point of ERP</h3><p>An ERP system is, at heart, a careful store of business data and the rules that govern it. Every role in this book works with that data. The help desk helps users find and enter it correctly. The support analyst protects and corrects it. The business analyst defines what data the business needs and how it should be structured. Respect for data quality is a professional value that runs through all three roles.</p><h3 class="bk-h2">9.2 Master data versus transactional data</h3><p>Two kinds of data fill an ERP system, and confusing them causes real problems:</p><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Type</th><th>What it is</th><th>Examples</th></tr><tr><td>Master data</td><td>Relatively stable reference records reused across transactions</td><td>Customers, vendors, products, chart of accounts, employees</td></tr><tr><td>Transactional data</td><td>Records of events that happen over time</td><td>Sales orders, invoices, payments, inventory movements, journal entries</td></tr></table></div><p>Master data quality is especially important because errors propagate: a wrong tax setting on a customer record corrupts every invoice for that customer. Many support investigations end at a bad master-data record, and many analyst projects begin with cleaning master data before a go-live.</p><h3 class="bk-h2">9.3 Reporting and the demand for insight</h3><p>Companies adopt ERP partly to see themselves clearly. Reporting turns stored data into the dashboards and statements leaders use to decide. In the Microsoft world, Power BI is the primary tool for interactive dashboards, while built-in reports and Excel exports serve everyday needs. The help desk fields report-access and export questions; support analysts fix reports that show wrong or missing data; business analysts define what reports the business needs and what each number means. A report that quietly shows wrong numbers is more dangerous than one that fails outright, so reporting issues deserve careful verification.</p><h3 class="bk-h2">9.4 Integrations: ERP never lives alone</h3><p>Real businesses run many systems, and ERP must exchange data with them: a bank for payments, a tax service for rates, an e-commerce store for orders, a warehouse scanner for stock. Each connection is an integration. Integrations are powerful and fragile; when one fails, data stops flowing and the symptom often appears far from the cause. An order that never arrived in Dynamics 365 may be an e-commerce integration failure, not an ERP fault at all.</p><div class="callout"><div class="callout-t">Why integrations generate hard tickets</div>
+        <p>The user sees a missing or wrong record and assumes the ERP is broken. The real cause may be a failed connection, a mismatched field, or a timing gap between systems. Strong analysts learn to ask early: did this come from another system, and did that handoff succeed?</p></div><h3 class="bk-h2">9.5 The support analyst and integration health</h3><p>Because integrations frequently surface as tickets, support analysts monitor them closely. They watch for failed transfers, mismatched or rejected records, and timing gaps where one system is ahead of another. When a transfer fails, the analyst diagnoses whether the problem is the data, the connection, or the other system, then resolves or routes accordingly. This is some of the most valued troubleshooting in ERP support precisely because it is hard and cross-system.</p><h4 class="bk-h3">Key terms</h4><ul class="bk-list"><li>Master data: stable reference records reused across transactions.</li><li>Transactional data: records of business events over time.</li><li>Power BI: Microsoft's tool for interactive reporting and dashboards.</li><li>Integration: a connection that exchanges data between ERP and another system.</li></ul><h4 class="bk-h3">Review questions</h4><ol class="bk-list"><li class="oli">Contrast master data and transactional data with two examples each.</li><li class="oli">Why does a master-data error tend to cause widespread problems?</li><li class="oli">Why is a report showing wrong numbers more dangerous than one that fails to load?</li><li class="oli">Explain why an integration failure can appear to be an ERP fault when it is not.</li></ol><h4 class="bk-h3">Hands-on lab 9</h4><div class="callout"><div class="callout-t">Diagnose a cross-system issue</div>
+        <p>Given a scenario where an online order does not appear in Dynamics 365, write the questions you would ask and the checks you would make, in order, to determine whether the cause is data, the integration, or the source system.</p><p>Deliverable: an ordered diagnostic checklist with reasoning.</p></div></section><section class="book-sec" id="sec-ch10"><div class="ch-open" id="ch-10">
+        <div class="ch-kicker">Chapter 10</div>
+        <h2 class="ch-title">Change, Releases, and System Health</h2>
+        <p class="ch-sub">How improvements reach users safely, and how the system stays well over time.</p></div><h3 class="bk-h2">10.1 Why change must be controlled</h3><p>An ERP system the whole company depends on cannot be changed casually. A small untested change can stop hundreds of people from working. Change control is the discipline that lets a system keep improving without breaking. Every role respects it: the help desk does not alter production to satisfy a complaint, the support analyst routes fixes through it, and the business analyst plans changes within it.</p><h3 class="bk-h2">10.2 The change process</h3><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Step</th><th>What happens</th></tr><tr><td>Request</td><td>A change is proposed, with its reason and expected benefit</td></tr><tr><td>Assess</td><td>Impact and risk are evaluated; who and what could be affected</td></tr><tr><td>Approve</td><td>The right authority signs off based on risk</td></tr><tr><td>Build and test</td><td>The change is made in dev and validated in test/UAT</td></tr><tr><td>Deploy</td><td>The change moves to production in a controlled release</td></tr><tr><td>Review</td><td>After release, confirm it worked and watch for side effects</td></tr></table></div><p>This is the same dev-to-production journey introduced in Chapter 3, now seen from the angle of governance. The point is not bureaucracy for its own sake but protecting a system that the business cannot afford to lose.</p><h3 class="bk-h2">10.3 Continuous updates in the cloud</h3><p>Cloud Dynamics 365 receives regular updates from Microsoft, including new features twice a year in major release waves. This is a benefit, the system stays modern without painful upgrades, but it also creates ongoing work. Support analysts test that updates do not disrupt existing configuration, and business analysts evaluate new features for the business. Staying current with the release waves is part of the job, not an occasional event.</p><div class="callout"><div class="callout-t">Release waves</div>
+        <p>Microsoft delivers major Dynamics 365 feature updates in scheduled waves. Teams preview them, test them against their own configuration, and plan adoption. Knowing this rhythm marks you as someone who understands the platform, not just a single screen.</p></div><h3 class="bk-h2">10.4 Keeping the system healthy</h3><p>Beyond fixing what breaks, mature teams keep the system well through proactive habits:</p><ul class="bk-list"><li>Monitoring: watching performance, batch jobs, and integrations before users feel a problem.</li><li>Housekeeping: cleaning stale data, retiring unused configuration, and keeping master data accurate.</li><li>Documentation: keeping configuration and process records current so knowledge does not walk out the door.</li><li>Proactive review: turning incident patterns into permanent improvements rather than repeated fixes.</li></ul><h4 class="bk-h3">Key terms</h4><ul class="bk-list"><li>Change control: the governed process for modifying the system safely.</li><li>Release wave: Microsoft's scheduled delivery of major feature updates.</li><li>Monitoring: proactive watching of system health.</li></ul><h4 class="bk-h3">Review questions</h4><ol class="bk-list"><li class="oli">List the steps of the change process and what each protects against.</li><li class="oli">Explain how cloud release waves create ongoing work for support and analyst roles.</li><li class="oli">Name three proactive habits that keep an ERP system healthy.</li></ol><h4 class="bk-h3">Hands-on lab 10</h4><div class="callout"><div class="callout-t">Plan a change</div>
+        <p>Take a small improvement (e.g., add a required field to a form). Write a change record: reason, impact, risk, approval needed, test plan, and post-release checks.</p><p>Deliverable: a one-page change request document.</p></div></section><section class="book-sec" id="sec-ch11"><div class="ch-open" id="ch-11">
+        <div class="ch-kicker">Chapter 11</div>
+        <h2 class="ch-title">Professional Skills and Communication</h2>
+        <p class="ch-sub">The human capabilities that decide who advances in ERP careers.</p></div><h3 class="bk-h2">11.1 Why soft skills are the real differentiator</h3><p>Technical knowledge gets you in the door. Communication, judgment, and reliability decide how far you go. ERP roles sit between technology and people, and the professionals who rise are those who explain clearly, stay calm, document faithfully, and earn trust. This chapter names those skills directly so you can practice them deliberately.</p><h3 class="bk-h2">11.2 Communicating with non-technical users</h3><p>Most people you help do not understand the system the way you do, and they should not have to. The skill is to translate: to explain a fix or a limitation in the user's language, without jargon and without condescension. Confirm you understood their problem by restating it, explain what you will do in plain terms, and tell them what to expect and when. A user who feels understood is patient; a user who feels dismissed escalates.</p><h3 class="bk-h2">11.3 Writing that does its job</h3><p>So much of ERP work is writing: tickets, escalations, knowledge articles, requirements, change records. Good professional writing is clear, specific, and complete. A ticket that says it does not work helps no one; a ticket that says saving a sales order returns error X after step Y, affecting the whole sales team since 9 a.m., lets the next person start immediately. Write so the reader never has to come back to ask what you meant.</p><div class="callout"><div class="callout-t">Echolink writing standard</div>
+        <p>State the situation, the impact, and the exact detail. Avoid vague words. Prefer short sentences. Write so a colleague who has never seen the issue could act on your words alone. This is the same standard whether you are logging a ticket or drafting a requirement.</p></div><h3 class="bk-h2">11.4 Staying calm and managing stress</h3><p>ERP support has pressure points: outages, month-end, go-lives. Users may be frustrated and managers anxious. The professional stays steady, separates the emotion from the problem, communicates honestly about status, and works the issue methodically. Calm is contagious, and so is panic; your composure is part of the service you provide.</p><h3 class="bk-h2">11.5 Working across teams</h3><p>No ERP role works alone. You will coordinate with other support tiers, developers, business stakeholders, and vendors. Reliability is your currency: do what you said, by when you said, and tell people early if you cannot. Respect the boundaries between roles, hand off cleanly, and give credit. The professional reputation you build across teams determines the opportunities that come to you.</p><h3 class="bk-h2">11.6 Ethics and care with data</h3><p>ERP professionals see sensitive information: salaries, financials, customer records. Treat it with discretion and integrity. Access only what your work requires, never share what you should not, and follow your organization's data and privacy rules carefully. Trust, once broken in this field, is very hard to rebuild, and your access depends on it.</p><h4 class="bk-h3">Review questions</h4><ol class="bk-list"><li class="oli">Describe how you would explain a technical limitation to a frustrated, non-technical user.</li><li class="oli">Rewrite a vague problem statement into one that lets the next person act immediately.</li><li class="oli">Why is composure under pressure considered a professional skill, not just a personality trait?</li><li class="oli">Give two examples of ethical handling of sensitive ERP data.</li></ol><h4 class="bk-h3">Hands-on lab 11</h4><div class="callout"><div class="callout-t">Practice the handoff</div>
+        <p>Pair up. One person describes a problem verbally and emotionally, as a stressed user would. The other restates it calmly, writes a clear ticket, and reads it back. Then swap.</p><p>Deliverable: two written tickets produced from spoken complaints, each meeting the Echolink writing standard.</p></div></section><section class="book-sec" id="sec-ch12"><div class="ch-open" id="ch-12">
+        <div class="ch-kicker">Chapter 12</div>
+        <h2 class="ch-title">The Career Path: From Help Desk to Beyond</h2>
+        <p class="ch-sub">How the three roles connect, and how to climb deliberately.</p></div><h3 class="bk-h2">12.1 The ladder</h3><p>The three roles in this book are rungs on a ladder that most ERP professionals climb in order. The help desk teaches the system and the users. Support teaches root cause and the technical depths. Analysis teaches the business and the design of the solution itself. Each role prepares you for the next, which is why excelling where you are is the surest way to advance.</p><figure class="bk-fig"><div class="figbox"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560">
+<rect width="920" height="560" fill="#FFFFFF"/>
+<text x="460.0" y="44" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#13315C" text-anchor="middle">The ERP Career Ladder</text>
+<rect x="80" y="412" width="300" height="76" rx="10" fill="#D6E4F0" stroke="#C9A227" stroke-width="2.5"/>
+<text x="100" y="446" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545">Help Desk Technician</text>
+<text x="100" y="470" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#0B2545" opacity="0.92">Entry level  •  ~$45k–65k</text>
+<rect x="220" y="324" width="300" height="76" rx="10" fill="#2E75B6" stroke="#C9A227" stroke-width="2.5"/>
+<text x="240" y="358" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#FFFFFF">ERP Support Analyst</text>
+<text x="240" y="382" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" opacity="0.92">2–5 years  •  ~$70k–110k</text>
+<rect x="360" y="236" width="300" height="76" rx="10" fill="#13315C" stroke="#C9A227" stroke-width="2.5"/>
+<text x="380" y="270" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#FFFFFF">ERP Business Analyst</text>
+<text x="380" y="294" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" opacity="0.92">4–8 years  •  ~$85k–135k</text>
+<rect x="500" y="148" width="300" height="76" rx="10" fill="#0B2545" stroke="#C9A227" stroke-width="2.5"/>
+<text x="520" y="182" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#FFFFFF">Senior BA / Consultant</text>
+<text x="520" y="206" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" opacity="0.92">8+ years  •  ~$120k–170k+</text>
+<line x1="60" y1="492" x2="60" y2="138" stroke="#C9A227" stroke-width="4"/>
+<polygon points="60,122 52,142 68,142" fill="#C9A227"/>
+</svg></div>
+        <figcaption>Figure 12.1  Most ERP professionals climb these rungs in order, each building on the last.</figcaption></figure><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Role</th><th>Typical experience</th><th>Illustrative US salary range</th></tr><tr><td>Help Desk Technician</td><td>Entry level</td><td>About 45,000 to 65,000 dollars</td></tr><tr><td>ERP Support Analyst</td><td>2 to 5 years</td><td>About 70,000 to 110,000 dollars</td></tr><tr><td>ERP Business Analyst</td><td>4 to 8 years</td><td>About 85,000 to 135,000 dollars</td></tr><tr><td>Senior BA / Consultant / Manager</td><td>8 or more years</td><td>About 120,000 to 170,000+ dollars</td></tr></table></div><p><em>These ranges are illustrative and vary widely by region, industry, employer, and specialization. They are included to show the shape of progression, not to promise a number. Deep skill in a specific Dynamics 365 application, plus certifications, tends to move you toward the upper end.</em></p><h3 class="bk-h2">12.2 What moves you up</h3><ul class="bk-list"><li>Pattern recognition: at the help desk, noticing recurring issues is the first sign of analyst thinking.</li><li>Root-cause discipline: in support, consistently finding and preventing causes builds the reputation that earns promotion.</li><li>Business fluency: learning how finance, sales, and operations actually work is what turns a support analyst into a business analyst.</li><li>Certification: Microsoft offers role-based certifications for Dynamics 365 that validate your skills and signal seriousness to employers.</li><li>Communication: at every rung, the people who explain and document best advance fastest.</li></ul><h3 class="bk-h2">12.3 Certifications worth knowing</h3><p>Microsoft provides role-based certifications that map well to this career path. You do not need them to start, but they accelerate progress and strengthen a resume. Relevant tracks include fundamentals certifications that prove broad platform literacy, and functional consultant certifications tied to specific applications such as Finance, Supply Chain Management, or Sales. Earning a fundamentals certification while at the help desk, then a functional certification as a support or business analyst, mirrors the career ladder itself.</p><div class="callout"><div class="callout-t">A practical certification sequence</div>
+        <p>Start with a Dynamics 365 or Power Platform fundamentals certification to prove platform literacy.</p><p>Add a functional consultant certification in the application you specialize in as you grow into support and analysis.</p><p>Pair certifications with real sandbox work; a certificate plus a portfolio of labs beats either alone.</p></div><h3 class="bk-h2">12.4 Building your portfolio now</h3><p>Do not wait for a job to start building evidence of your skills. The labs in this book are the beginning of a portfolio: tickets you wrote, root-cause reports you produced, requirements packages you drafted, process maps you drew. A candidate who can show clear, real artifacts stands far above one who can only claim knowledge. Keep your best work, organized and explained, and bring it to interviews.</p><h3 class="bk-h2">12.5 Beyond the three roles</h3><p>The ladder does not end at business analyst. From there, paths open into functional consulting (implementing Dynamics 365 for many clients), solution architecture (designing whole systems), project and program management, and specialized technical or leadership tracks. The foundation is the same one this book builds: understand the system, understand the business, communicate clearly, and keep learning. Where you go from there is yours to choose.</p><h4 class="bk-h3">Review questions</h4><ol class="bk-list"><li class="oli">Describe the three rungs of the ERP career ladder and what each teaches.</li><li class="oli">Name three behaviors that move a professional from one rung to the next.</li><li class="oli">Outline a sensible certification sequence aligned to the ladder.</li><li class="oli">Why does a portfolio of real artifacts strengthen a job application?</li><li class="oli">List two roles you can grow into beyond business analyst.</li></ol><h4 class="bk-h3">Hands-on lab 12 (capstone)</h4><div class="callout"><div class="callout-t">Assemble your portfolio and your plan</div>
+        <p>Collect your best deliverables from Labs 1 through 11 into one organized portfolio. For each, add a sentence on what it demonstrates.</p><p>Then write a one-page career plan: your target first role, the skills and certification you will pursue, and the next rung you are aiming for.</p><p>Deliverable: an organized portfolio plus a one-page personal career plan.</p></div></section><section class="book-sec" id="sec-ch13"><div class="ch-open" id="ch-13">
+        <div class="ch-kicker">Chapter 13</div>
+        <h2 class="ch-title">Interview Questions and Answers</h2>
+        <p class="ch-sub">Practice questions for all three roles, with model answers and what interviewers are listening for.</p></div><p>This chapter gathers the questions you are most likely to face when interviewing for a help desk, ERP support analyst, or ERP business analyst position involving Microsoft Dynamics 365. Each question includes a model answer written in the first person so you can adapt it to your own experience, and many include a short note on what the interviewer is really assessing.</p><div class="callout"><div class="callout-t">How to use these answers</div>
+        <p>Do not memorize them word for word. Read the model answer, understand why it works, then rewrite it in your own voice with your own examples. Interviewers can tell rehearsed lines from real understanding, and the labs you completed in this book are exactly the kind of concrete examples that make answers credible.</p></div><p>13.1 General and behavioral questions</p><div class="qa-q"><strong>Q1.  </strong><strong>What is ERP, and why do companies use it?</strong></div><p><strong>Answer:  </strong>ERP, or Enterprise Resource Planning, is software that connects a company's core operations, such as finance, supply chain, sales, and HR, into one system built on a single shared database. Instead of each department keeping its own records, everyone works from the same accurate data.</p><p>Companies use it for a single source of truth, automation of routine work like turning orders into invoices, real-time visibility for decisions, stronger compliance and audit trails, and the ability to scale as they grow. In short, ERP lets a business run on connected data rather than disconnected spreadsheets.</p><div class="qa-q"><strong>Q2.  </strong><strong>Why do you want to work in ERP support rather than general IT?</strong></div><p><strong>Answer:  </strong>General IT support is broad, but ERP support sits at the intersection of technology and how a business actually makes money. I like that an ERP issue is never just technical; it has a real impact on whether finance can close the books or whether an order ships. That connection to the business keeps the work meaningful, and it gives me a clear growth path from support into analysis and beyond.</p><div class="qa-q"><strong>Q3.  </strong><strong>Tell me about a time you solved a difficult technical problem.</strong></div><p><strong>Answer:  </strong>Use the STAR structure: Situation, Task, Action, Result. Briefly set the scene, state what you were responsible for, walk through the specific steps you took to diagnose and fix the problem, and end with the measurable outcome and what you learned.</p><p>For example: a recurring approval email was not reaching managers. I reproduced it in a sandbox, traced it to a misconfigured workflow condition, corrected the condition, verified with the affected manager, and documented the root cause so the help desk could recognize it instantly next time. The result was zero recurrences and a new knowledge article.</p><div class="qa-q"><strong>Q4.  </strong><strong>How do you handle a frustrated or angry user?</strong></div><p><strong>Answer:  </strong>I stay calm and let them explain without interrupting, because people mostly want to feel heard. I restate the problem in my own words to confirm I understand it, then I tell them clearly what I will do and what to expect, including timing. I keep them updated rather than going silent, and I confirm the fix worked before closing. The emotion usually settles once the user sees I have taken ownership.</p><div class="qa-q"><strong>Q5.  </strong><strong>How do you prioritize when several urgent tickets arrive at once?</strong></div><p><strong>Answer:  </strong>I prioritize by combining impact and urgency. A problem affecting an entire team or a critical process, like the whole finance team unable to post during month-end, comes before a single user with a cosmetic issue. I communicate quickly to everyone waiting so no one feels ignored, escalate anything widespread, and work the queue in priority order rather than first-in-first-out.</p><p>13.2 Help desk technician questions</p><div class="qa-q"><strong>Q6.  </strong><strong>Walk me through how you handle a user who cannot sign in to Dynamics 365.</strong></div><p><strong>Answer:  </strong>I treat sign-in as the first of the three questions of access: who are you. I verify the user's identity, then check their account state in Microsoft Entra ID for a locked account, expired password, or a multi-factor issue, and resolve what I can, such as a reset or unlock. I also confirm they have the right license assigned for the app, since a missing license can look like a sign-in failure. Once they are in, I confirm with them directly before closing the ticket.</p><div class="qa-q"><strong>Q7.  </strong><strong>What information do you capture before escalating a ticket?</strong></div><p><strong>Answer:  </strong>A good escalation lets the next person start immediately, so I capture the exact symptom and the precise error text including any code, who is affected and since when, the exact steps to reproduce, what I already tried, and the business impact. A poor escalation forces the analyst to restart the investigation, which defeats the purpose.</p><div class="qa-q"><strong>Q8.  </strong><strong>What is the difference between an incident and a service request?</strong></div><p><strong>Answer:  </strong>An incident means something is broken and needs to be restored, like an error when saving an order. A service request is a routine, non-fault ask, like requesting access for a new hire or a new report. Telling them apart matters because they follow different processes and are measured differently.</p><div class="qa-q"><strong>Q9.  </strong><strong>How do you measure success at a help desk?</strong></div><p><strong>Answer:  </strong>Common metrics are first response time, first contact resolution, average handle time balanced against quality, customer satisfaction, and escalation rate. I care most about first contact resolution and satisfaction, because together they show I am solving problems quickly while keeping users confident in the support function.</p><div class="qa-q"><strong>Q10.  </strong><strong>Why is documentation part of resolving a ticket, not an extra step?</strong></div><p><strong>Answer:  </strong>An undocumented fix is lost work. If I solve something and write nothing down, the next person who sees the same issue starts from zero. When I document the resolution as a knowledge article, the whole team, including Tier 1, can resolve it faster next time. Documentation is how a support organization gets smarter instead of solving the same problem forever.</p><p>13.3 ERP support analyst questions</p><div class="qa-q"><strong>Q11.  </strong><strong>What is the difference between a help desk technician and a support analyst?</strong></div><p><strong>Answer:  </strong>The help desk gets the user working again; the support analyst makes sure the problem stops happening. The technician restores a single user quickly, while the analyst investigates why something broke, fixes it at the source, and works to prevent recurrence. The analyst goes deeper into configuration, data, and integrations.</p><div class="qa-q"><strong>Q12.  </strong><strong>Walk me through your process for finding the root cause of a recurring issue.</strong></div><p><strong>Answer:  </strong>I follow a six-step workflow: understand the ticket fully, reproduce the issue in a sandbox, diagnose by checking configuration, security, data, logs, and recent changes, resolve the cause and route any production change through change control, verify with the user and in the system, and then prevent recurrence by documenting the root cause and updating the knowledge base. The discipline is in not stopping at the symptom; I keep asking why until the true cause appears.</p><div class="qa-q"><strong>Q13.  </strong><strong>Why do you reproduce an issue in a sandbox before fixing it?</strong></div><p><strong>Answer:  </strong>A sandbox is a safe non-production copy, so I can recreate and understand the problem without risking the live system the whole company depends on. It lets me test a fix safely and confirm it works before anything touches production. Changing production directly to chase a problem is how small issues become outages.</p><div class="qa-q"><strong>Q14.  </strong><strong>What is a batch job, and why does it matter at month-end?</strong></div><p><strong>Answer:  </strong>A batch job is a scheduled automated process in the ERP system; it posts transactions, recalculates inventory, runs integrations, and generates reports, often overnight. At month-end, finance depends on every scheduled process completing cleanly so the books can close on deadline. A failed batch can stall an entire morning, so I monitor job status, investigate failures fast, and rerun safely. Staying calm and reliable during close earns deep trust from the business.</p><div class="qa-q"><strong>Q15.  </strong><strong>An order placed online never appeared in Dynamics 365. How do you approach it?</strong></div><p><strong>Answer:  </strong>I would not assume the ERP is at fault. Orders like this usually arrive through an integration from another system, so I ask early whether this came from another system and whether that handoff succeeded. I check the integration for failed or rejected transfers, look for a data mismatch such as an invalid field, and consider a timing gap between systems. Then I determine whether the cause is the data, the connection, or the source system, and resolve or route accordingly.</p><div class="qa-q"><strong>Q16.  </strong><strong>What is the principle of least privilege?</strong></div><p><strong>Answer:  </strong>Least privilege means giving each user exactly the access their job requires and no more. Over-granting access creates risk of error and fraud and complicates audits. So even when it would be quicker to copy a colleague's access to satisfy a request, the right approach is to grant only the specific role needed, through proper approval.</p><p>13.4 ERP business analyst questions</p><div class="qa-q"><strong>Q17.  </strong><strong>What does an ERP business analyst actually do?</strong></div><p><strong>Answer:  </strong>The business analyst is the bridge between the business and the system. Where a support analyst asks why something broke, I ask how the system should work in the first place. I sit with finance, sales, and operations to understand their goals and pain points, translate those into clear, testable requirements, run a fit-gap against what Dynamics 365 does natively, map current and future state processes, guide configuration, and lead testing and adoption. My core skill is turning a vague business wish into a precise requirement a system can satisfy.</p><div class="qa-q"><strong>Q18.  </strong><strong>What makes a good requirement? Give an example.</strong></div><p><strong>Answer:  </strong>A good requirement is specific, measurable, and testable. A weak requirement like the system should handle approvals cannot be built or verified. A strong one specifies a condition, an actor, and an action: purchase orders above five thousand dollars must route for approval to the requester's manager before they can be confirmed, and the manager must be notified by email within five minutes. The strong version can be built, tested, and confirmed.</p><div class="qa-q"><strong>Q19.  </strong><strong>Explain a fit-gap analysis.</strong></div><p><strong>Answer:  </strong>For each requirement, I ask whether Dynamics 365 already does this out of the box. If yes, it is a fit and I simply configure it. If no, it is a gap, which I close by customization or by adapting the business process. I prefer configuration and process change over heavy customization, because customization is costly to build and maintain and can complicate future updates.</p><div class="qa-q"><strong>Q20.  </strong><strong>What is the difference between configuration and customization?</strong></div><p><strong>Answer:  </strong>Configuration means setting options the system already supports, like turning on a feature or defining a tax rule; it is safe and upgrade-friendly. Customization means building something new with code or low-code tools; it is powerful but adds cost and maintenance. A disciplined analyst exhausts configuration before reaching for customization.</p><div class="qa-q"><strong>Q21.  </strong><strong>How do you gather requirements from stakeholders who are not sure what they want?</strong></div><p><strong>Answer:  </strong>I use a mix of techniques rather than relying on a single meeting. I interview people one on one for depth, run workshops to map a process and surface disagreements, observe users doing their real work because that reveals needs they never thought to mention, analyze their current spreadsheets and reports, and prototype a draft configuration so they can react to something concrete instead of imagining in the abstract. Showing people something real almost always draws out the requirement faster than asking.</p><div class="qa-q"><strong>Q22.  </strong><strong>What is UAT, and what is your role in it?</strong></div><p><strong>Answer:  </strong>UAT is User Acceptance Testing, where real business users confirm a change does what they asked before it goes live. My role is to define test cases that each trace back to a requirement, prepare and support the testers, track and retest defects, and secure the business sign-off. Only after that sign-off does the change move toward production through the controlled release process.</p><div class="qa-q"><strong>Q23.  </strong><strong>How do you decide whether a recurring problem needs a fix or a redesign?</strong></div><p><strong>Answer:  </strong>If users keep hitting the same error, a support analyst can keep fixing it, but if the process forces them into that error by design, that is a signal for the business analyst. When a pattern of incidents reveals that the configuration or process is wrong by design rather than merely broken, I treat it as a requirement to redesign, not just another ticket to close. Recognizing that boundary is part of the job.</p><p>13.5 Scenario and closing questions</p><div class="qa-q"><strong>Q24.  </strong><strong>The entire sales team reports the system is slow. What are your first three actions?</strong></div><p><strong>Answer:  </strong>First, I confirm the scope: is it everyone or a subset, which app, and since when, so I know whether this is a widespread issue. Second, I raise the priority accordingly and alert the right people, because a team-wide slowdown is high impact. Third, I begin structured diagnosis, checking whether a batch job, an integration, or a recent change is involved, while keeping the affected users informed of status. Communication runs in parallel with the technical work.</p><div class="qa-q"><strong>Q25.  </strong><strong>Where do you see yourself in three to five years?</strong></div><p><strong>Answer:  </strong>I want to grow along the ERP career ladder. I expect to start by mastering the help desk and the system, move into support where I build root-cause discipline, and grow toward a business analyst role as I learn how the business actually works. Longer term I am interested in functional consulting or solution work. I also plan to earn Microsoft Dynamics 365 certifications along the way to back up the experience.</p><div class="qa-q"><strong>Q26.  </strong><strong>Do you have any questions for us?</strong></div><p><strong>Answer:  </strong>Always say yes; having no questions signals low interest. Good questions show you think about the work: which Dynamics 365 applications does the team support, what does the escalation path between tiers look like, how does the team handle the twice-yearly release waves, and what does success look like in the first ninety days. These also help you judge whether the role fits you.</p><div class="callout"><div class="callout-t">Final interview tips</div>
+        <p>Bring your portfolio. The labs from this book, your tickets, root-cause reports, and requirements packages, are concrete proof that beats claims.</p><p>Use the STAR structure for behavioral questions: Situation, Task, Action, Result.</p><p>It is fine to say you do not know something, then explain how you would find out. Honesty plus a method beats a confident wrong answer.</p><p>Match your language to the role: service and speed for help desk, diagnosis and prevention for support, translation and requirements for analysis.</p></div><h4 class="bk-h3">Hands-on lab 13 (interview prep)</h4><div class="callout"><div class="callout-t">Mock interview</div>
+        <p>Pair up. One person is the interviewer and picks six questions from this chapter across the three roles; the other answers out loud using their own examples and the STAR structure. Then swap and give each other one specific piece of feedback per answer.</p><p>Deliverable: your three strongest answers written out in your own words, each tied to a real example or a lab you completed.</p></div></section><section class="book-sec" id="sec-appx"><div class="ch-open" id="ch-A">
+        <div class="ch-kicker">Chapter A</div>
+        <h2 class="ch-title">Glossary</h2>
+        <p class="ch-sub">Quick definitions of the terms used throughout this book.</p></div><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Term</th><th>Definition</th></tr><tr><td>ERP</td><td>Enterprise Resource Planning; connected software managing core business operations from one database.</td></tr><tr><td>Module</td><td>A functional area of an ERP system, such as Finance or Supply Chain.</td></tr><tr><td>Dynamics 365</td><td>Microsoft's family of ERP and CRM business applications.</td></tr><tr><td>Microsoft 365</td><td>Microsoft's productivity suite and shared identity (Outlook, Teams, Office).</td></tr><tr><td>F&amp;O</td><td>Finance and Operations; the pairing of Dynamics 365 Finance and Supply Chain Management.</td></tr><tr><td>Dataverse</td><td>The underlying data store for Dynamics 365 customer-engagement apps.</td></tr><tr><td>Entra ID</td><td>Microsoft's identity service that authenticates users (formerly Azure AD).</td></tr><tr><td>Security role</td><td>A bundle of permissions assigned to users.</td></tr><tr><td>Least privilege</td><td>Granting only the access a job requires.</td></tr><tr><td>Segregation of duties</td><td>Separating conflicting powers across different people to prevent fraud.</td></tr><tr><td>Incident</td><td>A ticket reporting that something is broken and needs restoring.</td></tr><tr><td>Service request</td><td>A routine, non-fault request such as access or a new report.</td></tr><tr><td>Problem</td><td>The underlying cause behind one or more incidents.</td></tr><tr><td>Change</td><td>A planned, governed modification to the system.</td></tr><tr><td>SLA</td><td>Service Level Agreement; agreed response and resolution time targets.</td></tr><tr><td>Root cause</td><td>The underlying reason an issue occurred, beyond its symptom.</td></tr><tr><td>Batch job</td><td>A scheduled automated process in the ERP system.</td></tr><tr><td>Master data</td><td>Stable reference records reused across transactions (customers, items).</td></tr><tr><td>Transactional data</td><td>Records of business events over time (orders, invoices).</td></tr><tr><td>Integration</td><td>A connection that exchanges data between ERP and another system.</td></tr><tr><td>Fit-gap</td><td>Comparing requirements to native capability and deciding how to close gaps.</td></tr><tr><td>Requirement</td><td>A clear, testable statement of what the business needs the system to do.</td></tr><tr><td>Current / future state</td><td>How a process works today versus how it should work in the system.</td></tr><tr><td>UAT</td><td>User Acceptance Testing; real users validating a change before go-live.</td></tr><tr><td>Release wave</td><td>Microsoft's scheduled delivery of major Dynamics 365 feature updates.</td></tr></table></div><div class="ch-open" id="ch-B">
+        <div class="ch-kicker">Chapter B</div>
+        <h2 class="ch-title">Role Comparison at a Glance</h2>
+        <p class="ch-sub">The three roles side by side.</p></div><div class="tbl-wrap"><table class="bk-tbl"><tr><th>Dimension</th><th>Help Desk</th><th>Support Analyst</th><th>Business Analyst</th></tr><tr><td>Core question</td><td>Fix it now?</td><td>Why did it break?</td><td>How should it work?</td></tr><tr><td>Tier</td><td>Tier 1</td><td>Tier 2</td><td>Design / strategy</td></tr><tr><td>Main output</td><td>Resolved tickets</td><td>Root-cause fixes</td><td>Requirements and solutions</td></tr><tr><td>Works most with</td><td>End users</td><td>Systems and data</td><td>Business stakeholders</td></tr><tr><td>Key skill</td><td>Fast, clear service</td><td>Structured diagnosis</td><td>Translation of needs</td></tr><tr><td>Measured by</td><td>Response, CSAT, FCR</td><td>MTTR, recurrence</td><td>Solution fit, adoption</td></tr><tr><td>Grows into</td><td>Support Analyst</td><td>Business Analyst</td><td>Consultant / Architect</td></tr></table></div><div class="ch-open" id="ch-C">
+        <div class="ch-kicker">Chapter C</div>
+        <h2 class="ch-title">Quick Reference for the Job</h2>
+        <p class="ch-sub">Habits and checklists to carry into your first ERP role.</p></div><h4 class="bk-h3">Before you escalate, capture</h4><ul class="bk-list"><li>The exact symptom and exact error text.</li><li>Who is affected and since when.</li><li>The precise steps to reproduce.</li><li>What you already tried.</li><li>The business impact.</li></ul><h4 class="bk-h3">Before you change production, confirm</h4><ul class="bk-list"><li>The change was tested in a non-production environment.</li><li>The right person approved it.</li><li>You can describe how to undo it if needed.</li><li>Affected users know it is coming.</li></ul><h4 class="bk-h3">Before you grant access, ask</h4><ul class="bk-list"><li>What task requires it, and is this the minimum role that covers it?</li><li>Is there approval?</li><li>Does the combination break segregation of duties?</li></ul><h4 class="bk-h3">Before you write a requirement, check it is</h4><ul class="bk-list"><li>Specific: it names the condition, actor, and action.</li><li>Testable: you could prove it works or does not.</li><li>Agreed: the business confirmed this is the real need.</li></ul><p><strong>End of book</strong></p><p><em>Echolink Solutions Professional Training Series</em></p></section>
+  </section>
+
+  <section id="quiz" class="view">
+    <div class="page-head">
+      <div class="kicker">Test yourself</div>
+      <h1>Interactive quizzes</h1>
+      <p>Self-grading, with instant feedback and explanations. Nothing is saved or sent — refresh to reset.</p>
+    </div>
+    <div id="picker"><div class="grid" id="quizGrid"></div></div>
+    <div id="runner" style="display:none;">
+      <div class="runner-head">
+        <button class="back" id="backBtn">‹ All quizzes</button>
+        <h2 id="runnerTitle"></h2>
+        <span style="width:90px;"></span>
+      </div>
+      <div class="progress-wrap"><div class="progress-bar" id="bar"></div></div>
+      <div class="progress-label" id="progLabel"></div>
+      <div id="qHost"></div>
+      <div class="runner-foot">
+        <button class="btn ghost" id="prevBtn">‹ Previous</button>
+        <button class="btn" id="nextBtn">Next ›</button>
+      </div>
+    </div>
+    <div id="results" style="display:none;"></div>
+  </section>
+
+  <section id="ref" class="view ref">
+    <div class="page-head">
+      <div class="kicker">At a glance</div>
+      <h1>Quick reference</h1>
+      <p>The key diagrams and concepts from the handbook, on one screen.</p>
+    </div>
+    <h3>What ERP is</h3>
+    <p>Enterprise Resource Planning ties a company's core operations into one connected system with one shared database, so every department works from the same accurate data instead of separate spreadsheets.</p>
+    <figure><div class="figbox"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 640">
+<rect width="920" height="640" fill="#FFFFFF"/>
+<line x1="460" y1="320" x2="460" y2="110" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="642" y2="215" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="642" y2="425" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="460" y2="530" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="278" y2="425" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="460" y1="320" x2="278" y2="215" stroke="#C7D2DD" stroke-width="3"/>
+<circle cx="460" cy="320" r="92" fill="#0B2545"/>
+<text x="460" y="312" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Central</text>
+<text x="460" y="340" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Database</text>
+<rect x="375" y="79" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="460" y="116" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Finance</text>
+<rect x="557" y="184" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="642" y="221" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Supply Chain</text>
+<rect x="557" y="394" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="642" y="431" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Sales / CRM</text>
+<rect x="375" y="499" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="460" y="536" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Manufacturing</text>
+<rect x="193" y="394" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="278" y="431" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Human Resources</text>
+<rect x="193" y="184" width="170" height="62" rx="10" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="278" y="221" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545" text-anchor="middle">Project Ops</text>
+<text x="460" y="40" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#13315C" text-anchor="middle">ERP: One Connected System</text>
+</svg></div><figcaption>Every module reads from and writes to one shared central database.</figcaption></figure>
+    <h3>The three roles</h3>
+    <figure><div class="figbox"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470">
+<rect width="960" height="470" fill="#FFFFFF"/>
+<text x="480.0" y="42" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="bold" fill="#13315C" text-anchor="middle">Three Roles, One Team</text>
+<rect x="30.0" y="80" width="290" height="350" rx="14" fill="#D6E4F0" stroke="#C9A227" stroke-width="2"/>
+<text x="175.0" y="124" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#0B2545" text-anchor="middle">HELP DESK</text>
+<text x="175.0" y="152" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#0B2545" opacity="0.85" text-anchor="middle">Tier 1</text>
+<line x1="60.0" y1="170" x2="290.0" y2="170" stroke="#0B2545" stroke-width="1" opacity="0.4"/>
+<text x="175.0" y="208" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#0B2545" text-anchor="middle">“How do I get this user</text>
+<text x="175.0" y="232" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#0B2545" text-anchor="middle">working again right now?”</text>
+<text x="175.0" y="310" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#0B2545" text-anchor="middle">Receive, triage,</text>
+<text x="175.0" y="334" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#0B2545" text-anchor="middle">resolve, escalate</text>
+<text x="327.5" y="255.0" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#C9A227" text-anchor="middle">→</text>
+<rect x="335.0" y="80" width="290" height="350" rx="14" fill="#2E75B6" stroke="#C9A227" stroke-width="2"/>
+<text x="480.0" y="124" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">SUPPORT ANALYST</text>
+<text x="480.0" y="152" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" opacity="0.85" text-anchor="middle">Tier 2</text>
+<line x1="365.0" y1="170" x2="595.0" y2="170" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
+<text x="480.0" y="208" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#FFFFFF" text-anchor="middle">“Why did this break,</text>
+<text x="480.0" y="232" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#FFFFFF" text-anchor="middle">and how do we stop it?”</text>
+<text x="480.0" y="310" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Root cause, config,</text>
+<text x="480.0" y="334" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">batch, integrations</text>
+<text x="632.5" y="255.0" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#C9A227" text-anchor="middle">→</text>
+<rect x="640.0" y="80" width="290" height="350" rx="14" fill="#13315C" stroke="#C9A227" stroke-width="2"/>
+<text x="785.0" y="124" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">BUSINESS ANALYST</text>
+<text x="785.0" y="152" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#FFFFFF" opacity="0.85" text-anchor="middle">Design</text>
+<line x1="670.0" y1="170" x2="900.0" y2="170" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
+<text x="785.0" y="208" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#FFFFFF" text-anchor="middle">“How should the system</text>
+<text x="785.0" y="232" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#FFFFFF" text-anchor="middle">work for the business?”</text>
+<text x="785.0" y="310" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Requirements, fit-gap,</text>
+<text x="785.0" y="334" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">process, UAT</text>
+</svg></div><figcaption>Three roles, one team — each answers a different question.</figcaption></figure>
+    <table class="tbl">
+      <tr><th>Role</th><th>Core question</th><th>Tier</th></tr>
+      <tr><td>Help Desk Technician</td><td>How do I get this user working right now?</td><td>Entry / Tier 1</td></tr>
+      <tr><td>ERP Support Analyst</td><td>Why did this break, and how do we stop it?</td><td>Mid / Tier 2</td></tr>
+      <tr><td>ERP Business Analyst</td><td>How should the system work for the business?</td><td>Design</td></tr>
+    </table>
+    <h3>Microsoft Dynamics 365 in context</h3>
+    <p>Microsoft 365 is the productivity suite; Dynamics 365 is the family of ERP and CRM applications. They share one cloud foundation and one sign-in.</p>
+    <figure><div class="figbox"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520">
+<rect width="920" height="520" fill="#FFFFFF"/>
+<text x="460.0" y="40" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="bold" fill="#13315C" text-anchor="middle">The Microsoft Cloud Ecosystem</text>
+<rect x="70" y="80" width="360" height="150" rx="14" fill="#D6E4F0" stroke="#2E75B6" stroke-width="2.5"/>
+<text x="250" y="116" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#0B2545" text-anchor="middle">Microsoft 365</text>
+<text x="250" y="146" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#0B2545" text-anchor="middle">Outlook  •  Teams  •  Word</text>
+<text x="250" y="170" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#0B2545" text-anchor="middle">Excel  •  SharePoint  •  OneDrive</text>
+<text x="250" y="200" font-family="Helvetica, Arial, sans-serif" font-size="14" font-style="italic" fill="#5A6675" text-anchor="middle">Tools to communicate &amp; create</text>
+<rect x="490" y="80" width="360" height="150" rx="14" fill="#13315C" stroke="#C9A227" stroke-width="2.5"/>
+<text x="670" y="116" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Dynamics 365</text>
+<text x="670" y="146" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle">Finance  •  Supply Chain  •  Sales</text>
+<text x="670" y="170" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle">Customer Service  •  Business Central</text>
+<text x="670" y="200" font-family="Helvetica, Arial, sans-serif" font-size="14" font-style="italic" fill="#D6E4F0" text-anchor="middle">Apps to run operations</text>
+<rect x="70" y="270" width="780" height="80" rx="12" fill="#2E75B6" stroke="#0B2545" stroke-width="2"/>
+<text x="460" y="305" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Power Platform  •  Dataverse</text>
+<text x="460" y="332" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle">Power Apps  •  Power Automate  •  Power BI</text>
+<rect x="70" y="370" width="780" height="70" rx="12" fill="#0B2545"/>
+<text x="460" y="404" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Microsoft Entra ID</text>
+<text x="460" y="428" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#D6E4F0" text-anchor="middle">One identity / sign-in for everything above</text>
+<line x1="250" y1="230" x2="250" y2="270" stroke="#C7D2DD" stroke-width="3"/>
+<line x1="670" y1="230" x2="670" y2="270" stroke="#C7D2DD" stroke-width="3"/>
+</svg></div><figcaption>Both sit on a shared cloud foundation and a single identity.</figcaption></figure>
+    <h3>Incident-to-resolution workflow</h3>
+    <figure><div class="figbox"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330">
+<rect width="960" height="330" fill="#FFFFFF"/>
+<text x="480.0" y="40" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#13315C" text-anchor="middle">Incident-to-Resolution Workflow</text>
+<rect x="45.0" y="130" width="130" height="90" rx="12" fill="#D6E4F0" stroke="#0B2545" stroke-width="2"/>
+<circle cx="110.0" cy="160" r="16" fill="#C9A227"/>
+<text x="110.0" y="166" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">1</text>
+<text x="110.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0B2545" text-anchor="middle">Understand</text>
+<text x="184.0" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#C9A227" text-anchor="middle">›</text>
+<rect x="193.0" y="130" width="130" height="90" rx="12" fill="#D6E4F0" stroke="#0B2545" stroke-width="2"/>
+<circle cx="258.0" cy="160" r="16" fill="#C9A227"/>
+<text x="258.0" y="166" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">2</text>
+<text x="258.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0B2545" text-anchor="middle">Reproduce</text>
+<text x="332.0" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#C9A227" text-anchor="middle">›</text>
+<rect x="341.0" y="130" width="130" height="90" rx="12" fill="#2E75B6" stroke="#0B2545" stroke-width="2"/>
+<circle cx="406.0" cy="160" r="16" fill="#C9A227"/>
+<text x="406.0" y="166" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">3</text>
+<text x="406.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Diagnose</text>
+<text x="480.0" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#C9A227" text-anchor="middle">›</text>
+<rect x="489.0" y="130" width="130" height="90" rx="12" fill="#D6E4F0" stroke="#0B2545" stroke-width="2"/>
+<circle cx="554.0" cy="160" r="16" fill="#C9A227"/>
+<text x="554.0" y="166" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">4</text>
+<text x="554.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0B2545" text-anchor="middle">Resolve</text>
+<text x="628.0" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#C9A227" text-anchor="middle">›</text>
+<rect x="637.0" y="130" width="130" height="90" rx="12" fill="#D6E4F0" stroke="#0B2545" stroke-width="2"/>
+<circle cx="702.0" cy="160" r="16" fill="#C9A227"/>
+<text x="702.0" y="166" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">5</text>
+<text x="702.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0B2545" text-anchor="middle">Verify</text>
+<text x="776.0" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#C9A227" text-anchor="middle">›</text>
+<rect x="785.0" y="130" width="130" height="90" rx="12" fill="#2E75B6" stroke="#0B2545" stroke-width="2"/>
+<circle cx="850.0" cy="160" r="16" fill="#C9A227"/>
+<text x="850.0" y="166" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">6</text>
+<text x="850.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Prevent</text>
+<text x="480.0" y="270" font-family="Helvetica, Arial, sans-serif" font-size="15" font-style="italic" fill="#5A6675" text-anchor="middle">Strong analysts excel at steps 3 (Diagnose) and 6 (Prevent).</text>
+</svg></div><figcaption>The support analyst's disciplined path; the craft is in Diagnose and Prevent.</figcaption></figure>
+    <h3>Access and security</h3>
+    <div class="keybox"><b>The three questions of access:</b> 1) Who are you? (identity / Entra ID) · 2) Are you allowed in this app? (licensing) · 3) What can you do inside it? (security roles). Nearly every access ticket is one of these three.</div>
+    <figure><div class="figbox"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300">
+<rect width="920" height="300" fill="#FFFFFF"/>
+<text x="460.0" y="40" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#13315C" text-anchor="middle">The Three Questions of Access</text>
+<rect x="50.0" y="80" width="260" height="170" rx="14" fill="#D6E4F0" stroke="#C9A227" stroke-width="2"/>
+<circle cx="84.0" cy="114" r="20" fill="#C9A227"/>
+<text x="84.0" y="121" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#0B2545" text-anchor="middle">1</text>
+<text x="198.0" y="124" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0B2545" text-anchor="middle">Who are you?</text>
+<text x="180.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#0B2545" text-anchor="middle">Identity</text>
+<text x="180.0" y="220" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#0B2545" text-anchor="middle">(Entra ID sign-in)</text>
+<rect x="330.0" y="80" width="260" height="170" rx="14" fill="#2E75B6" stroke="#C9A227" stroke-width="2"/>
+<circle cx="364.0" cy="114" r="20" fill="#C9A227"/>
+<text x="364.0" y="121" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#0B2545" text-anchor="middle">2</text>
+<text x="478.0" y="124" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Are you allowed</text>
+<text x="478.0" y="146" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#FFFFFF" text-anchor="middle">in this app?</text>
+<text x="460.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle">Licensing</text>
+<rect x="610.0" y="80" width="260" height="170" rx="14" fill="#13315C" stroke="#C9A227" stroke-width="2"/>
+<circle cx="644.0" cy="114" r="20" fill="#C9A227"/>
+<text x="644.0" y="121" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#0B2545" text-anchor="middle">3</text>
+<text x="758.0" y="124" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#FFFFFF" text-anchor="middle">What can you</text>
+<text x="758.0" y="146" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#FFFFFF" text-anchor="middle">do inside it?</text>
+<text x="740.0" y="198" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle">Security roles</text>
+<text x="740.0" y="220" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" text-anchor="middle">&amp; permissions</text>
+</svg></div><figcaption>Most access tickets reduce to one of these three questions.</figcaption></figure>
+    <h3>The career ladder</h3>
+    <figure><div class="figbox"><svg class="figsvg" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560">
+<rect width="920" height="560" fill="#FFFFFF"/>
+<text x="460.0" y="44" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#13315C" text-anchor="middle">The ERP Career Ladder</text>
+<rect x="80" y="412" width="300" height="76" rx="10" fill="#D6E4F0" stroke="#C9A227" stroke-width="2.5"/>
+<text x="100" y="446" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#0B2545">Help Desk Technician</text>
+<text x="100" y="470" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#0B2545" opacity="0.92">Entry level  •  ~$45k–65k</text>
+<rect x="220" y="324" width="300" height="76" rx="10" fill="#2E75B6" stroke="#C9A227" stroke-width="2.5"/>
+<text x="240" y="358" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#FFFFFF">ERP Support Analyst</text>
+<text x="240" y="382" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" opacity="0.92">2–5 years  •  ~$70k–110k</text>
+<rect x="360" y="236" width="300" height="76" rx="10" fill="#13315C" stroke="#C9A227" stroke-width="2.5"/>
+<text x="380" y="270" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#FFFFFF">ERP Business Analyst</text>
+<text x="380" y="294" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" opacity="0.92">4–8 years  •  ~$85k–135k</text>
+<rect x="500" y="148" width="300" height="76" rx="10" fill="#0B2545" stroke="#C9A227" stroke-width="2.5"/>
+<text x="520" y="182" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="bold" fill="#FFFFFF">Senior BA / Consultant</text>
+<text x="520" y="206" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#FFFFFF" opacity="0.92">8+ years  •  ~$120k–170k+</text>
+<line x1="60" y1="492" x2="60" y2="138" stroke="#C9A227" stroke-width="4"/>
+<polygon points="60,122 52,142 68,142" fill="#C9A227"/>
+</svg></div><figcaption>Most ERP professionals climb these rungs in order.</figcaption></figure>
+    <p style="font-size:.85rem; color:var(--grey);">Salary ranges shown are illustrative and vary by region, industry, and employer.</p>
+  </section>
+</main>
+
+<button class="totop" id="totop" aria-label="Back to top">↑</button>
+
+<footer class="foot">
+  Echolink Solutions Professional Training Series · The ERP Career Handbook &amp; Interactive Quiz<br>
+  This page runs entirely in your browser. No data is collected or sent.
+</footer>
+
+<script>
+function showTab(name){
+  document.querySelectorAll("nav.tabs button").forEach(x=>x.classList.toggle("active", x.dataset.tab===name));
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("show"));
+  document.getElementById(name).classList.add("show");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("nav.tabs button").forEach(b=> b.onclick=()=>showTab(b.dataset.tab));
+document.querySelectorAll("[data-goto]").forEach(el=> el.onclick=()=>showTab(el.dataset.goto));
+const totop=document.getElementById("totop");
+window.addEventListener("scroll",()=>{ totop.classList.toggle("show", window.scrollY>600); });
+totop.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+
+
+/* ============ QUIZ DATA ============
+   answer = index (0-based) of the correct option. */
+const QUIZZES = [
+ {id:"c1", title:"Ch 1 · Understanding ERP", tag:"core", tagLabel:"Foundations", q:[
+   {s:"What is the defining feature of an ERP system?",
+    o:["It replaces all employees with automation","It connects core operations through one shared database","It is only used by the finance department","It stores data in separate spreadsheets per team"],a:1,
+    e:"ERP's whole point is one connected system over a single shared database — a single source of truth."},
+   {s:"Which of these is NOT a common ERP module?",
+    o:["Finance","Supply Chain","Photo Editing","Human Resources"],a:2,
+    e:"Modules are business functions (Finance, Supply Chain, HR, Sales…). Photo editing isn't one."},
+   {s:"ERP hosted by the vendor and accessed over the internet is called:",
+    o:["On-premise ERP","Cloud ERP","Manual ERP","Offline ERP"],a:1,
+    e:"Cloud ERP is vendor-hosted and updates continuously. Dynamics 365 is cloud-first."},
+   {s:"Which is a reason companies invest in ERP?",
+    o:["To create more spreadsheets","A single source of truth and automation","To slow down reporting","To isolate each department's data"],a:1,
+    e:"Single source of truth, automation, visibility, compliance, and scalability are the core drivers."},
+ ]},
+ {id:"c2", title:"Ch 2 · Dynamics 365 & the Ecosystem", tag:"core", tagLabel:"Platform", q:[
+   {s:"Which statement is correct?",
+    o:["Microsoft 365 is the ERP; Dynamics 365 is email","Dynamics 365 is the family of business applications; Microsoft 365 is the productivity suite","They are two names for the same product","Dynamics 365 does not use a Microsoft sign-in"],a:1,
+    e:"Microsoft 365 = productivity tools; Dynamics 365 = ERP/CRM business apps. They share a cloud and a sign-in."},
+   {s:"Which is a Dynamics 365 ERP application?",
+    o:["Outlook","Supply Chain Management","PowerPoint","OneDrive"],a:1,
+    e:"Supply Chain Management is a D365 ERP app. The others are Microsoft 365 productivity tools."},
+   {s:"What is the role of Microsoft Entra ID?",
+    o:["It builds dashboards","It authenticates users and handles sign-in","It posts financial journals","It manages warehouse inventory"],a:1,
+    e:"Entra ID (formerly Azure AD) is the identity service that signs users in."},
+   {s:"The pairing of Finance and Supply Chain Management is often called:",
+    o:["CRM","Finance and Operations (F&O)","Power BI","Dataverse"],a:1,
+    e:"Finance + Supply Chain Management is commonly called Finance and Operations, or F&O."},
+ ]},
+ {id:"c3", title:"Ch 3 · How ERP Comes to Life", tag:"core", tagLabel:"Lifecycle", q:[
+   {s:"In which phase do help desk and support analysts spend their careers?",
+    o:["Initiate","Implement","Go-live","Operate"],a:3,
+    e:"Support roles live in the Operate phase, keeping the live system healthy."},
+   {s:"A requirement Dynamics 365 already satisfies out of the box is a:",
+    o:["Gap","Fit","Customization","Defect"],a:1,
+    e:"A fit is met by configuration; a gap must be closed by customization or process change."},
+   {s:"Which environment is the live system the whole company depends on?",
+    o:["Development","Sandbox","Production","Test"],a:2,
+    e:"Production is live. Changes reach it only after testing and approval."},
+   {s:"Setting options the system already supports is called:",
+    o:["Customization","Configuration","Migration","Integration"],a:1,
+    e:"Configuration is safe and upgrade-friendly; customization builds new functionality at higher cost."},
+ ]},
+ {id:"c4", title:"Ch 4 · Help Desk Technician", tag:"hd", tagLabel:"Help Desk", q:[
+   {s:"Which is a core help desk responsibility?",
+    o:["Designing the company's financial strategy","Triaging and prioritizing incoming requests","Writing the ERP source code","Approving the annual budget"],a:1,
+    e:"Tier 1 receives, triages, resolves common issues, escalates, communicates, and documents."},
+   {s:"Which metric measures solving an issue on the first interaction?",
+    o:["Average handle time","Escalation rate","First contact resolution","Mean time to resolution"],a:2,
+    e:"First contact resolution is the share of tickets solved on the first interaction."},
+   {s:"What should a technician capture before escalating?",
+    o:["Only the user's name","The exact symptom, error text, steps, what was tried, and business impact","Nothing; the analyst will figure it out","Just the time of day"],a:1,
+    e:"A good escalation lets the analyst start immediately instead of restarting the investigation."},
+   {s:"Why is documentation part of resolving a ticket?",
+    o:["It is not; it's optional","An undocumented fix is lost work and can't help the next person","To make tickets longer","Only managers read it"],a:1,
+    e:"Documenting a fix as a knowledge article raises future first-contact resolution."},
+ ]},
+ {id:"c5", title:"Ch 5 · ERP Support Analyst", tag:"sa", tagLabel:"Support", q:[
+   {s:"What best distinguishes a support analyst from a help desk technician?",
+    o:["The analyst answers phones faster","The analyst finds root cause and prevents recurrence","The analyst only works weekends","There is no difference"],a:1,
+    e:"The help desk restores the user; the analyst stops the problem from happening again."},
+   {s:"Why reproduce an issue in a sandbox first?",
+    o:["To impress the user","To understand and test a fix safely without risking production","Because production is always offline","It is not necessary"],a:1,
+    e:"A sandbox is a safe non-production copy for diagnosis and testing."},
+   {s:"Which step is where strong analysts especially excel?",
+    o:["Logging the ticket","Diagnosing root cause and preventing recurrence","Closing the ticket quickly","Forwarding to a manager"],a:1,
+    e:"The craft lives in Diagnose (step 3) and Prevent (step 6) of the six-step workflow."},
+   {s:"A scheduled automated process within the ERP system is called a:",
+    o:["Batch job","Sandbox","Security role","Service request"],a:0,
+    e:"Batch jobs post transactions, run integrations, and recalculate — critical at month-end."},
+ ]},
+ {id:"c6", title:"Ch 6 · ERP Business Analyst", tag:"ba", tagLabel:"Analysis", q:[
+   {s:"What is the business analyst's defining skill?",
+    o:["Writing source code","Turning a vague business wish into a precise, testable requirement","Resetting passwords","Running overnight batch jobs"],a:1,
+    e:"Translation of a need into a testable requirement is the core act of the role."},
+   {s:"Which is the strongest requirement?",
+    o:["The system should handle approvals","Make reports better","Purchase orders above $5,000 must route to the requester's manager before confirmation","Approvals should be nice"],a:2,
+    e:"It names a condition, an actor, and an action, so it can be built and tested."},
+   {s:"Watching users do their real work to discover unspoken needs is called:",
+    o:["Prototyping","Observation","Document analysis","Customization"],a:1,
+    e:"Observation surfaces needs users never thought to mention."},
+   {s:"Comparing a requirement to native capability and deciding how to close the difference is:",
+    o:["UAT","Fit-gap analysis","Migration","Triage"],a:1,
+    e:"Fit = configure it; gap = close by customization or process change."},
+ ]},
+ {id:"c7", title:"Ch 7 · Security, Access & Identity", tag:"core", tagLabel:"Security", q:[
+   {s:"Which layer answers \u201CWho are you?\u201D",
+    o:["Licensing","Microsoft Entra ID (identity)","Security roles","Batch jobs"],a:1,
+    e:"Identity (Entra ID) authenticates who the user is."},
+   {s:"Least privilege means:",
+    o:["Give everyone admin access","Grant only the access a job requires","Remove all access from everyone","Copy a colleague's access to save time"],a:1,
+    e:"Over-granting creates risk of error and fraud and complicates audits."},
+   {s:"Which is a segregation-of-duties conflict?",
+    o:["One person can both create a vendor and pay that vendor","Two people share an office","A user has a long password","A report runs overnight"],a:0,
+    e:"No single person should control a whole sensitive process end to end."},
+   {s:"A bundle of permissions assigned to users is called a:",
+    o:["Batch job","Security role","Service request","Sandbox"],a:1,
+    e:"Users are assigned roles rather than individual permissions."},
+ ]},
+ {id:"c8", title:"Ch 8 · Tickets & Service Management", tag:"core", tagLabel:"Service", q:[
+   {s:"An error when saving an order is best classified as a:",
+    o:["Service request","Incident","Change","Knowledge article"],a:1,
+    e:"An incident means something is broken and needs restoring."},
+   {s:"Priority is determined by combining:",
+    o:["Cost and color","Impact and urgency","Name and date","Tier and shift"],a:1,
+    e:"Impact (how many / how critical) plus urgency (how time-sensitive) set priority."},
+   {s:"A new-hire access request is a:",
+    o:["Incident","Problem","Service request","Outage"],a:2,
+    e:"A service request is a routine, non-fault ask."},
+   {s:"The agreed response and resolution time targets are called:",
+    o:["KPIs","SLAs","ROIs","FAQs"],a:1,
+    e:"Service Level Agreements set promised response and resolution times by priority."},
+ ]},
+ {id:"c9", title:"Ch 9 · Data, Reporting & Integrations", tag:"core", tagLabel:"Data", q:[
+   {s:"Which is master data?",
+    o:["A sales order","A customer record","An invoice","A payment"],a:1,
+    e:"Master data is stable reference records (customers, items). Orders/invoices are transactional."},
+   {s:"Why is a master-data error especially dangerous?",
+    o:["It is easy to ignore","It propagates to every transaction that uses the record","It only affects one screen","It fixes itself overnight"],a:1,
+    e:"A wrong setting on a master record corrupts every related transaction."},
+   {s:"An online order never appears in Dynamics 365. The most likely first suspect is:",
+    o:["The user's keyboard","A failed integration from the source system","The building's power supply","The color of the form"],a:1,
+    e:"Orders usually arrive via integration; the handoff may have failed, not the ERP."},
+   {s:"Records of business events over time (orders, invoices) are called:",
+    o:["Master data","Transactional data","Metadata","Reference data"],a:1,
+    e:"Transactional data records events; master data is the stable references they use."},
+ ]},
+ {id:"c10", title:"Ch 10 · Change, Releases & Health", tag:"core", tagLabel:"Change", q:[
+   {s:"Why must change be controlled?",
+    o:["To slow everyone down","Because an untested change can stop the whole company from working","To create paperwork","It does not need to be controlled"],a:1,
+    e:"Change control lets a system improve without breaking what the business depends on."},
+   {s:"Microsoft delivers major Dynamics 365 feature updates in:",
+    o:["Random surprise drops","Scheduled release waves","Annual paper manuals","Never"],a:1,
+    e:"Twice-yearly release waves must be tested against existing configuration."},
+   {s:"Which is a proactive system-health habit?",
+    o:["Ignoring batch jobs until they fail","Monitoring performance and integrations before users feel a problem","Deleting documentation","Granting everyone admin access"],a:1,
+    e:"Monitoring, housekeeping, documentation, and pattern review keep a system well."},
+ ]},
+ {id:"c11", title:"Ch 11 · Professional Skills", tag:"core", tagLabel:"Skills", q:[
+   {s:"When communicating with a non-technical user, you should:",
+    o:["Use as much jargon as possible","Translate into plain language and confirm you understood their problem","Refuse to explain","Tell them to read the manual"],a:1,
+    e:"Restate the problem to confirm understanding, then explain in their language."},
+   {s:"The Echolink writing standard says to state:",
+    o:["Only your opinion","The situation, the impact, and the exact detail","As little as possible","Long apologies"],a:1,
+    e:"Write so a colleague who's never seen the issue could act on your words alone."},
+   {s:"Ethical handling of sensitive ERP data means:",
+    o:["Sharing salaries with friends","Accessing only what your work requires and not sharing what you should not","Copying customer lists for personal use","Ignoring privacy rules"],a:1,
+    e:"Discretion and integrity protect the trust your access depends on."},
+ ]},
+ {id:"c12", title:"Ch 12 · The Career Path", tag:"core", tagLabel:"Career", q:[
+   {s:"What is the typical entry point of the ERP career ladder?",
+    o:["Solution Architect","Help Desk Technician","Chief Information Officer","ERP Manager"],a:1,
+    e:"Most ERP professionals start at the help desk and climb from there."},
+   {s:"At the help desk, the first sign of analyst thinking is:",
+    o:["Closing tickets without reading them","Noticing recurring patterns across tickets","Avoiding documentation","Working alone"],a:1,
+    e:"Spotting patterns is the first step toward root-cause (analyst) thinking."},
+   {s:"A sensible certification sequence is:",
+    o:["Skip certifications entirely","Fundamentals first, then a functional consultant certification as you specialize","Expert certification before learning the basics","Only paper certificates with no practice"],a:1,
+    e:"Pair a fundamentals cert with hands-on sandbox work, then specialize."},
+ ]},
+ {id:"c13", title:"Ch 13 · Interview Preparation", tag:"core", tagLabel:"Interview", q:[
+   {s:"What does STAR stand for?",
+    o:["Start, Talk, Argue, Resolve","Situation, Task, Action, Result","System, Ticket, Analyst, Role","Sales, Trade, Audit, Report"],a:1,
+    e:"STAR structures a behavioral answer: set the scene, your task, your actions, the result."},
+   {s:"When asked \u201CDo you have any questions for us?\u201D you should:",
+    o:["Say no to seem easygoing","Ask thoughtful questions about the team, escalation path, and success in 90 days","Ask only about salary","Leave immediately"],a:1,
+    e:"Good questions signal interest and help you judge the role's fit."},
+   {s:"If you don't know a technical answer, the best response is:",
+    o:["Make up a confident wrong answer","Say you don't know, then explain how you would find out","Refuse to answer","Change the subject"],a:1,
+    e:"Honesty plus a method beats a confident wrong answer."},
+ ]},
+ {id:"exam", title:"Cumulative Practice Exam", tag:"exam", tagLabel:"All chapters", q:[
+   {s:"ERP's defining feature is:",o:["Separate spreadsheets","One shared connected database","Email only","Manual re-keying"],a:1,e:"One connected database — a single source of truth."},
+   {s:"Dynamics 365 is best described as:",o:["A productivity suite","A family of ERP and CRM business applications","An email client","A web browser"],a:1,e:"Microsoft 365 is productivity; Dynamics 365 is the business apps."},
+   {s:"Microsoft Entra ID handles:",o:["Reporting","Identity and sign-in","Inventory","Payroll"],a:1,e:"Entra ID authenticates users."},
+   {s:"Support roles work mainly in which phase?",o:["Initiate","Implement","Operate","Go-live"],a:2,e:"Operate — keeping the live system healthy."},
+   {s:"A requirement met out of the box is a:",o:["Gap","Fit","Defect","Customization"],a:1,e:"A fit is simply configured."},
+   {s:"The live system the company depends on is the:",o:["Sandbox","Dev","Production","Test"],a:2,e:"Production is live; changes reach it only after approval."},
+   {s:"The first level of support is:",o:["Tier 3","Tier 1","Architect","Vendor"],a:1,e:"Tier 1 is first contact — the help desk."},
+   {s:"First contact resolution measures:",o:["Tickets escalated","Issues solved on first interaction","Time of day","Number of users"],a:1,e:"Solved on the first interaction without escalation."},
+   {s:"The support analyst's focus beyond the symptom is:",o:["Speed only","Root cause and prevention","Closing fast","Ignoring patterns"],a:1,e:"Find the cause and stop recurrence."},
+   {s:"Reproducing in a sandbox protects:",o:["The user's mood","Production from risk","The vendor","Nothing"],a:1,e:"Diagnose safely without touching the live system."},
+   {s:"The business analyst's defining skill is:",o:["Coding","Turning wishes into testable requirements","Password resets","Batch monitoring"],a:1,e:"Translation into testable requirements."},
+   {s:"Watching users work to find unspoken needs is:",o:["Prototyping","Observation","Coding","Auditing"],a:1,e:"Observation reveals needs users don't state."},
+   {s:"\u201CWho are you?\u201D is answered by:",o:["Licensing","Identity (Entra ID)","Security roles","Reports"],a:1,e:"Identity authenticates the user."},
+   {s:"Least privilege means:",o:["Admin for all","Only the access a job requires","No access","Copy a colleague"],a:1,e:"Grant the minimum needed."},
+   {s:"An error saving an order is an:",o:["Service request","Incident","Change","Report"],a:1,e:"Something broken = incident."},
+   {s:"Priority combines:",o:["Cost and color","Impact and urgency","Name and date","Tier and shift"],a:1,e:"Impact plus urgency."},
+   {s:"A customer record is:",o:["Transactional data","Master data","A report","A batch job"],a:1,e:"Stable reference = master data."},
+   {s:"An online order missing in D365 most likely points to:",o:["The keyboard","A failed integration","The power supply","The form color"],a:1,e:"Integration handoff likely failed."},
+   {s:"Major D365 updates arrive as:",o:["Surprise drops","Release waves","Paper manuals","Never"],a:1,e:"Twice-yearly release waves."},
+   {s:"STAR is used for:",o:["Coding","Behavioral interview answers","Batch jobs","Licensing"],a:1,e:"Situation, Task, Action, Result."},
+ ]},
+];
+
+/* ============ STATE ============ */
+let cur=null, idx=0, answers=[];
+
+const $=s=>document.querySelector(s);
+const grid=$("#quizGrid"), picker=$("#picker"), runner=$("#runner"), results=$("#results");
+
+/* ---- tabs ---- */
+document.querySelectorAll("nav.tabs button").forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll("nav.tabs button").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");
+    document.querySelectorAll(".view").forEach(v=>v.classList.remove("show"));
+    $("#"+b.dataset.tab).classList.add("show");
+    window.scrollTo({top:0,behavior:"smooth"});
+  };
+});
+
+/* ---- build picker cards ---- */
+function tagClass(t){return {hd:"tag-hd",sa:"tag-sa",ba:"tag-ba",core:"tag-core",exam:"tag-core"}[t]||"tag-core";}
+QUIZZES.forEach(qz=>{
+  const card=document.createElement("button");
+  card.className="qcard"+(qz.id==="exam"?" exam":"");
+  card.innerHTML=`<div class="num">${qz.id==="exam"?"Final":qz.id.toUpperCase()}</div>
+    <h3>${qz.title}</h3>
+    <div class="meta">${qz.q.length} questions</div>
+    <span class="role-tag ${tagClass(qz.tag)}">${qz.tagLabel}</span>`;
+  card.onclick=()=>startQuiz(qz.id);
+  grid.appendChild(card);
+});
+
+/* ---- start ---- */
+function startQuiz(id){
+  cur=QUIZZES.find(q=>q.id===id);
+  idx=0; answers=new Array(cur.q.length).fill(null);
+  picker.style.display="none"; results.style.display="none"; runner.style.display="block";
+  $("#runnerTitle").textContent=cur.title;
+  renderQ();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ---- render one question ---- */
+function renderQ(){
+  const q=cur.q[idx];
+  const chosen=answers[idx];
+  const letters=["A","B","C","D","E"];
+  $("#bar").style.width=((idx)/(cur.q.length)*100)+"%";
+  $("#progLabel").textContent=`Question ${idx+1} of ${cur.q.length}`;
+  let opts="";
+  q.o.forEach((o,i)=>{
+    let cls="opt";
+    if(chosen!==null){
+      cls+=" locked";
+      if(i===q.a) cls+=" correct";
+      else if(i===chosen) cls+=" wrong";
+    }
+    opts+=`<button class="${cls}" data-i="${i}" ${chosen!==null?"disabled":""}>
+      <span class="letter">${letters[i]}</span><span class="otext">${o}</span></button>`;
+  });
+  $("#qHost").innerHTML=`<div class="question">
+    <div class="qn">Question ${idx+1}</div>
+    <div class="stem">${q.s}</div>
+    <div class="opts">${opts}</div>
+    <div class="explain ${chosen!==null?"show":""}">
+      <b>${chosen===null?"":(chosen===q.a?"Correct. ":"Not quite. ")}</b>${q.e}
+    </div></div>`;
+  if(chosen===null){
+    $("#qHost").querySelectorAll(".opt").forEach(b=>{
+      b.onclick=()=>{ answers[idx]=+b.dataset.i; renderQ(); };
+    });
+  }
+  $("#prevBtn").disabled=idx===0;
+  const last=idx===cur.q.length-1;
+  $("#nextBtn").textContent=last?"See score ›":"Next ›";
+  $("#nextBtn").disabled=chosen===null;
+}
+
+$("#nextBtn").onclick=()=>{
+  if(idx<cur.q.length-1){ idx++; renderQ(); }
+  else showResults();
+};
+$("#prevBtn").onclick=()=>{ if(idx>0){ idx--; renderQ(); } };
+$("#backBtn").onclick=()=>{ runner.style.display="none"; results.style.display="none"; picker.style.display="block"; };
+
+/* ---- results ---- */
+function showResults(){
+  const total=cur.q.length;
+  let correct=0; answers.forEach((a,i)=>{ if(a===cur.q[i].a) correct++; });
+  const pct=Math.round(correct/total*100);
+  const pass=pct>=70;
+  const deg=pct*3.6;
+  runner.style.display="none"; results.style.display="block";
+  const ringColor = pass? "var(--good)":"var(--bad)";
+  results.innerHTML=`<div class="result">
+    <div class="scorering" style="--deg:${deg}deg; background:conic-gradient(${ringColor} ${deg}deg, var(--ice) 0deg);">
+      <div class="inner"><div class="pct">${pct}%</div><div class="of">${correct} / ${total}</div></div>
+    </div>
+    <div class="verdict ${pass?"pass":"fail"}">${pass?"Passed":"Keep studying"}</div>
+    <p>${pass
+      ? "Solid work. You're ready to move on — try the next chapter or take the cumulative exam."
+      : "70% is the passing mark. Review the handbook reference for the questions you missed, then run this quiz again."}</p>
+    <button class="btn" id="retry">Try again</button>
+    <button class="btn ghost" id="toPicker">All quizzes</button>
+  </div>`;
+  $("#retry").onclick=()=>startQuiz(cur.id);
+  $("#toPicker").onclick=()=>{ results.style.display="none"; picker.style.display="block"; window.scrollTo({top:0,behavior:"smooth"}); };
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+</script>
+</body>
+</html>
